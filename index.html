@@ -6,7 +6,7 @@
 
 <title>El Carrito de Fran | Comodoro Rivadavia</title>
 
- <style>
+<style>
 
 * {
   box-sizing: border-box;
@@ -16,24 +16,29 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background: #f4f4f4;
-  color: #171717;
+  background: #fff4f7;
+  color: #432932;
 }
 
+/* ================= HEADER ================= */
+
 header {
-  background: #111;
-  color: white;
+  background: #f7b6c9;
+  color: #432932;
   text-align: center;
   padding: 35px 20px;
+  border-bottom: 4px solid #e99ab2;
 }
 
 header h1 {
   font-size: 34px;
   margin-bottom: 8px;
+  font-weight: 900;
+  letter-spacing: 1px;
 }
 
 header p {
-  color: #ddd;
+  color: #5d3742;
   margin: 5px 0;
 }
 
@@ -42,6 +47,7 @@ header p {
   margin-top: 12px;
   padding: 7px 14px;
   background: #25D366;
+  color: white;
   border-radius: 20px;
   font-weight: bold;
   font-size: 14px;
@@ -51,12 +57,19 @@ header p {
   display: inline-block;
   margin-top: 20px;
   padding: 14px 25px;
-  background: #25D366;
+  background: #e98eaa;
   color: white;
   text-decoration: none;
   border-radius: 30px;
   font-weight: bold;
+  box-shadow: 0 4px 10px rgba(180, 80, 110, 0.18);
 }
+
+.boton-principal:hover {
+  background: #dc7d9b;
+}
+
+/* ================= CONTENEDOR ================= */
 
 .contenedor {
   max-width: 950px;
@@ -68,30 +81,44 @@ header p {
   text-align: center;
   font-size: 29px;
   margin: 25px 0;
+  color: #432932;
 }
+
+/* ================= CATEGORIAS ================= */
 
 .categoria {
   font-size: 25px;
   margin: 35px 0 15px;
   padding-bottom: 8px;
-  border-bottom: 3px solid #111;
+  border-bottom: 3px solid #e9a0b7;
+  color: #5a303d;
 }
 
+/* ================= PRODUCTOS ================= */
+
 .producto {
-  background: white;
-  border-radius: 14px;
+  background: #ffffff;
+  border: 2px solid #f4c8d5;
+  border-radius: 18px;
   padding: 18px;
   margin-bottom: 14px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 12px rgba(180, 90, 120, 0.10);
+  transition: 0.2s;
+}
+
+.producto:hover {
+  border-color: #e99ab2;
+  transform: translateY(-2px);
 }
 
 .producto h3 {
   font-size: 19px;
   margin-bottom: 7px;
+  color: #432932;
 }
 
 .descripcion {
-  color: #666;
+  color: #765863;
   font-size: 14px;
   margin-bottom: 12px;
   line-height: 1.4;
@@ -101,44 +128,56 @@ header p {
   font-size: 20px;
   font-weight: bold;
   margin-bottom: 12px;
+  color: #c94f78;
 }
+
+/* BOTON AGREGAR */
 
 .producto button {
   width: 100%;
-  padding: 12px;
-  background: #111;
+  padding: 13px;
+  background: #e98eaa;
   color: white;
   border: none;
-  border-radius: 9px;
+  border-radius: 10px;
   font-size: 15px;
   font-weight: bold;
   cursor: pointer;
+  transition: 0.2s;
 }
 
 .producto button:hover {
-  background: #333;
+  background: #dc7d9b;
 }
 
-/* CARRITO */
+.producto button:active {
+  transform: scale(0.98);
+}
+
+/* ================= CARRITO ================= */
 
 .carrito {
-  background: white;
-  border-radius: 15px;
+  background: #ffffff;
+  border: 2px solid #f0b9cb;
+  border-radius: 18px;
   padding: 22px;
   margin-top: 40px;
-  box-shadow: 0 3px 15px rgba(0,0,0,0.12);
+  box-shadow: 0 5px 18px rgba(180, 90, 120, 0.14);
 }
 
 .carrito h2 {
   margin-bottom: 18px;
+  color: #432932;
 }
+
+/* ITEMS */
 
 .item-carrito {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 10px;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #f0d4dc;
   padding: 12px 0;
 }
 
@@ -152,22 +191,37 @@ header p {
   width: 30px;
   height: 30px;
   border: none;
-  border-radius: 6px;
-  background: #111;
+  border-radius: 7px;
+  background: #e98eaa;
   color: white;
   font-weight: bold;
   cursor: pointer;
 }
 
-.eliminar {
-  background: #d00 !important;
+.controles button:hover {
+  background: #dc7d9b;
 }
+
+/* ELIMINAR */
+
+.controles .eliminar {
+  background: #d9534f !important;
+}
+
+.controles .eliminar:hover {
+  background: #c9302c !important;
+}
+
+/* TOTAL */
 
 .total {
   font-size: 23px;
   font-weight: bold;
   margin: 20px 0;
+  color: #b9436b;
 }
+
+/* ================= FORMULARIO ================= */
 
 .formulario {
   margin-top: 25px;
@@ -175,6 +229,7 @@ header p {
 
 .formulario h3 {
   margin-bottom: 15px;
+  color: #432932;
 }
 
 .formulario input,
@@ -183,9 +238,18 @@ header p {
   width: 100%;
   padding: 13px;
   margin-bottom: 12px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+  border: 2px solid #f2c2d1;
+  border-radius: 10px;
   font-size: 15px;
+  background: #fffafb;
+  color: #432932;
+}
+
+.formulario input:focus,
+.formulario select:focus,
+.formulario textarea:focus {
+  outline: none;
+  border-color: #e98eaa;
 }
 
 .formulario textarea {
@@ -193,30 +257,47 @@ header p {
   resize: vertical;
 }
 
+/* ================= WHATSAPP ================= */
+
 .boton-whatsapp {
   width: 100%;
   padding: 16px;
   background: #25D366;
   color: white;
   border: none;
-  border-radius: 9px;
+  border-radius: 10px;
   font-size: 17px;
   font-weight: bold;
   cursor: pointer;
+  margin-top: 5px;
 }
+
+.boton-whatsapp:hover {
+  background: #1ebe5d;
+}
+
+/* ================= VACIAR ================= */
 
 .vaciar {
   width: 100%;
   padding: 11px;
   margin-top: 10px;
-  background: #ddd;
+  background: #f3dce3;
+  color: #6d3f4d;
   border: none;
   border-radius: 8px;
   cursor: pointer;
+  font-weight: bold;
 }
 
+.vaciar:hover {
+  background: #ebc9d4;
+}
+
+/* ================= FOOTER ================= */
+
 footer {
-  background: #111;
+  background: #432932;
   color: white;
   text-align: center;
   padding: 30px 15px;
@@ -226,7 +307,13 @@ footer p {
   margin: 5px;
 }
 
+/* ================= MOBILE ================= */
+
 @media (max-width: 600px) {
+
+  header {
+    padding: 30px 15px;
+  }
 
   header h1 {
     font-size: 28px;
@@ -240,85 +327,25 @@ footer p {
     font-size: 22px;
   }
 
+  .producto {
+    padding: 16px;
+  }
+
+  .producto h3 {
+    font-size: 18px;
+  }
+
   .item-carrito {
     align-items: flex-start;
     flex-direction: column;
   }
 
+  .controles {
+    margin-top: 5px;
+  }
+
 }
 
-/* 🌸 DISEÑO ROSA PASTEL - EL CARRITO DE FRAN */
-
-body {
-  background: #fff0f5;
-  color: #333;
-}
-
-header {
-  background: #f8b6c8;
-  color: #4a2630;
-  border-bottom: 4px solid #f29ab3;
-}
-
-h1 {
-  font-weight: 900;
-  letter-spacing: 1px;
-  color: #4a2630;
-}
-
-.product {
-  background: #ffffff;
-  border: 2px solid #f7c5d2;
-  border-radius: 18px;
-  margin-bottom: 14px;
-  padding: 16px;
-  box-shadow: 0 3px 10px rgba(180, 90, 120, 0.12);
-}
-
-.product:hover {
-  border-color: #ef91ad;
-}
-
-button {
-  background: #ef91ad;
-  color: #ffffff;
-  border: none;
-  border-radius: 12px;
-  font-weight: 800;
-  padding: 10px 14px;
-  cursor: pointer;
-}
-
-button:hover {
-  background: #e77f9f;
-}
-
-button:active {
-  transform: scale(0.96);
-}
-
-.cart {
-  background: #ffffff;
-  border: 2px solid #f7c5d2;
-  border-radius: 18px;
-  box-shadow: 0 3px 12px rgba(180, 90, 120, 0.15);
-}
-
-input,
-select,
-textarea {
-  background: #fffafb;
-  border: 2px solid #f5bfd0;
-  border-radius: 10px;
-  color: #333;
-}
-
-input:focus,
-select:focus,
-textarea:focus {
-  outline: none;
-  border-color: #ed8faa;
-}
 </style>
 </head>
 
@@ -814,7 +841,6 @@ Todavía no agregaste productos.
 TOTAL: $<span id="total">0</span>
 </div>
 
-
 <div class="formulario">
 
 <h3>📋 Datos del pedido</h3>
@@ -870,7 +896,6 @@ placeholder="Observaciones del pedido (opcional)"
 
 </div>
 
-
 <button
 class="boton-whatsapp"
 onclick="enviarWhatsApp()"
@@ -905,7 +930,6 @@ Vaciar pedido
 
 let carrito = [];
 
-
 function agregar(nombre, precio) {
 
   let productoExistente = carrito.find(
@@ -913,23 +937,17 @@ function agregar(nombre, precio) {
   );
 
   if (productoExistente) {
-
     productoExistente.cantidad++;
-
   } else {
-
     carrito.push({
       nombre: nombre,
       precio: precio,
       cantidad: 1
     });
-
   }
 
   actualizarCarrito();
-
 }
-
 
 function actualizarCarrito() {
 
@@ -947,13 +965,10 @@ function actualizarCarrito() {
     totalElemento.innerText = "0";
 
     return;
-
   }
-
 
   let html = "";
   let total = 0;
-
 
   carrito.forEach((producto, indice) => {
 
@@ -961,7 +976,6 @@ function actualizarCarrito() {
       producto.precio * producto.cantidad;
 
     total += subtotal;
-
 
     html += `
 
@@ -979,7 +993,6 @@ function actualizarCarrito() {
           × ${producto.cantidad}
 
         </div>
-
 
         <div class="controles">
 
@@ -1009,23 +1022,18 @@ function actualizarCarrito() {
 
   });
 
-
   lista.innerHTML = html;
 
   totalElemento.innerText =
     total.toLocaleString("es-AR");
-
 }
-
 
 function aumentar(indice) {
 
   carrito[indice].cantidad++;
 
   actualizarCarrito();
-
 }
-
 
 function disminuir(indice) {
 
@@ -1040,27 +1048,21 @@ function disminuir(indice) {
   }
 
   actualizarCarrito();
-
 }
-
 
 function eliminar(indice) {
 
   carrito.splice(indice, 1);
 
   actualizarCarrito();
-
 }
-
 
 function vaciarCarrito() {
 
   carrito = [];
 
   actualizarCarrito();
-
 }
-
 
 function enviarWhatsApp() {
 
@@ -1071,9 +1073,7 @@ function enviarWhatsApp() {
     );
 
     return;
-
   }
-
 
   const nombre =
     document.getElementById("nombre").value.trim();
@@ -1090,58 +1090,46 @@ function enviarWhatsApp() {
   const observaciones =
     document.getElementById("observaciones").value.trim();
 
-
   if (nombre === "") {
 
     alert("Por favor ingresá tu nombre.");
 
     return;
-
   }
-
 
   if (tipoPedido === "") {
 
     alert("Seleccioná retiro o delivery.");
 
     return;
-
   }
-
 
   if (tipoPedido === "Delivery" && direccion === "") {
 
     alert("Ingresá la dirección para el delivery.");
 
     return;
-
   }
-
 
   if (pago === "") {
 
     alert("Seleccioná la forma de pago.");
 
     return;
-
   }
-
 
   let mensaje =
     "🍔 *NUEVO PEDIDO - EL CARRITO DE FRAN*%0A%0A";
-
 
   mensaje +=
     "👤 *Cliente:* " +
     encodeURIComponent(nombre) +
     "%0A";
 
-
   mensaje +=
     "📦 *Pedido:* " +
     encodeURIComponent(tipoPedido) +
     "%0A";
-
 
   if (tipoPedido === "Delivery") {
 
@@ -1149,21 +1137,16 @@ function enviarWhatsApp() {
       "📍 *Dirección:* " +
       encodeURIComponent(direccion) +
       "%0A";
-
   }
-
 
   mensaje +=
     "💳 *Pago:* " +
     encodeURIComponent(pago) +
     "%0A%0A";
 
-
   mensaje += "🛒 *PRODUCTOS*%0A";
 
-
   let total = 0;
-
 
   carrito.forEach(producto => {
 
@@ -1171,7 +1154,6 @@ function enviarWhatsApp() {
       producto.precio * producto.cantidad;
 
     total += subtotal;
-
 
     mensaje +=
       "• " +
@@ -1184,12 +1166,10 @@ function enviarWhatsApp() {
 
   });
 
-
   mensaje +=
     "%0A💰 *TOTAL: $" +
     total.toLocaleString("es-AR") +
     "*";
-
 
   if (observaciones !== "") {
 
@@ -1199,10 +1179,8 @@ function enviarWhatsApp() {
 
   }
 
-
   const numero =
     "5492975414824";
-
 
   const url =
     "https://wa.me/" +
@@ -1210,9 +1188,7 @@ function enviarWhatsApp() {
     "?text=" +
     mensaje;
 
-
   window.open(url, "_blank");
-
 }
 
 </script>
