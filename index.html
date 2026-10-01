@@ -6,54 +6,78 @@
 
 <title>El Carrito de Fran | Comodoro Rivadavia</title>
 
- /* MEJORAS VISUALES - EL CARRITO DE FRAN */
+/* 🌸 DISEÑO ROSA PASTEL - EL CARRITO DE FRAN */
 
 body {
-  background: #111;
-  color: #fff;
+  background: #fff0f5;
+  color: #333;
 }
 
 header {
-  background: #000;
-  border-bottom: 3px solid #fff;
+  background: #f8b6c8;
+  color: #4a2630;
+  border-bottom: 4px solid #f29ab3;
 }
 
 h1 {
   font-weight: 900;
   letter-spacing: 1px;
+  color: #4a2630;
+}
+
+.product {
+  background: #ffffff;
+  border: 2px solid #f7c5d2;
+  border-radius: 18px;
+  margin-bottom: 14px;
+  padding: 16px;
+  box-shadow: 0 3px 10px rgba(180, 90, 120, 0.12);
+}
+
+.product:hover {
+  border-color: #ef91ad;
 }
 
 button {
+  background: #ef91ad;
+  color: #ffffff;
+  border: none;
   border-radius: 12px;
   font-weight: 800;
-  transition: transform 0.15s ease;
+  padding: 10px 14px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #e77f9f;
 }
 
 button:active {
   transform: scale(0.96);
 }
 
-.product {
-  background: #1c1c1c;
-  border: 1px solid #333;
-  border-radius: 16px;
-  margin-bottom: 12px;
-  padding: 15px;
-}
-
-.product:hover {
-  border-color: #fff;
-}
-
 .cart {
+  background: #ffffff;
+  border: 2px solid #f7c5d2;
   border-radius: 18px;
+  box-shadow: 0 3px 12px rgba(180, 90, 120, 0.15);
 }
 
 input,
 select,
 textarea {
+  background: #fffafb;
+  border: 2px solid #f5bfd0;
   border-radius: 10px;
-} 
+  color: #333;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #ed8faa;
+}
 <style>
 
 * {
