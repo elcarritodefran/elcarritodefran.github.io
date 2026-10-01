@@ -1,0 +1,320 @@
+index.html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>El Carrito de Fran</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f5f5f5;
+      color: #222;
+    }
+
+    header {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    header h1 {
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+
+    header p {
+      font-size: 15px;
+      color: #ddd;
+    }
+
+    .boton-principal {
+      display: inline-block;
+      margin-top: 20px;
+      background: #25D366;
+      color: white;
+      padding: 14px 25px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .contenedor {
+      max-width: 900px;
+      margin: auto;
+      padding: 25px 15px 100px;
+    }
+
+    .titulo {
+      text-align: center;
+      margin: 25px 0 20px;
+      font-size: 27px;
+    }
+
+    .categoria {
+      margin-top: 30px;
+      margin-bottom: 15px;
+      font-size: 23px;
+      border-bottom: 2px solid #111;
+      padding-bottom: 8px;
+    }
+
+    .producto {
+      background: white;
+      border-radius: 12px;
+      padding: 18px;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .producto h3 {
+      font-size: 19px;
+      margin-bottom: 6px;
+    }
+
+    .producto p {
+      color: #666;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .precio {
+      font-weight: bold;
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+
+    .producto button {
+      width: 100%;
+      border: none;
+      background: #111;
+      color: white;
+      padding: 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .carrito {
+      background: white;
+      margin-top: 35px;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .carrito h2 {
+      margin-bottom: 15px;
+    }
+
+    #lista-carrito {
+      margin-bottom: 15px;
+    }
+
+    .item-carrito {
+      padding: 8px 0;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .total {
+      font-size: 21px;
+      font-weight: bold;
+      margin: 18px 0;
+    }
+
+    .boton-whatsapp {
+      width: 100%;
+      border: none;
+      background: #25D366;
+      color: white;
+      padding: 15px;
+      border-radius: 8px;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    footer {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 25px 15px;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>🍔 El Carrito de Fran</h1>
+  <p>Comodoro Rivadavia</p>
+  <p>🕐 Abrimos de 20:00 a 23:00</p>
+
+  <a href="#menu" class="boton-principal">
+    HACÉ TU PEDIDO
+  </a>
+</header>
+
+<div class="contenedor">
+
+  <h2 class="titulo" id="menu">📋 Nuestro Menú</h2>
+
+  <h2 class="categoria">🍔 Hamburguesas</h2>
+
+  <div class="producto">
+    <h3>Hamburguesa Fran</h3>
+    <p>Hamburguesa casera con nuestros ingredientes.</p>
+    <div class="precio">$0</div>
+    <button onclick="agregar('Hamburguesa Fran', 0)">
+      AGREGAR AL PEDIDO
+    </button>
+  </div>
+
+  <h2 class="categoria">🍟 Papas</h2>
+
+  <div class="producto">
+    <h3>Papas Fritas</h3>
+    <p>Papas fritas caseras.</p>
+    <div class="precio">$0</div>
+    <button onclick="agregar('Papas Fritas', 0)">
+      AGREGAR AL PEDIDO
+    </button>
+  </div>
+
+  <h2 class="categoria">🌭 Panchos</h2>
+
+  <div class="producto">
+    <h3>Pancho Completo</h3>
+    <p>Pancho con nuestros ingredientes.</p>
+    <div class="precio">$0</div>
+    <button onclick="agregar('Pancho Completo', 0)">
+      AGREGAR AL PEDIDO
+    </button>
+  </div>
+
+  <div class="carrito">
+
+    <h2>🛒 Mi pedido</h2>
+
+    <div id="lista-carrito">
+      Todavía no agregaste productos.
+    </div>
+
+    <div class="total">
+      Total: $<span id="total">0</span>
+    </div>
+
+    <button class="boton-whatsapp" onclick="enviarWhatsApp()">
+      🟢 ENVIAR PEDIDO POR WHATSAPP
+    </button>
+
+  </div>
+
+</div>
+
+<footer>
+  <p>🍔 El Carrito de Fran</p>
+  <p>Comodoro Rivadavia</p>
+</footer>
+
+<script>
+
+  let carrito = [];
+
+  function agregar(nombre, precio) {
+
+    carrito.push({
+      nombre: nombre,
+      precio: precio
+    });
+
+    actualizarCarrito();
+  }
+
+  function actualizarCarrito() {
+
+    const lista = document.getElementById("lista-carrito");
+    const totalElemento = document.getElementById("total");
+
+    if (carrito.length === 0) {
+      lista.innerHTML = "Todavía no agregaste productos.";
+      totalElemento.innerText = "0";
+      return;
+    }
+
+    let html = "";
+    let total = 0;
+
+    carrito.forEach((producto, indice) => {
+
+      html += `
+        <div class="item-carrito">
+          ${producto.nombre} - $${producto.precio}
+          <button onclick="eliminar(${indice})"
+          style="margin-left:10px;">
+          ❌
+          </button>
+        </div>
+      `;
+
+      total += producto.precio;
+    });
+
+    lista.innerHTML = html;
+    totalElemento.innerText = total;
+  }
+
+  function eliminar(indice) {
+
+    carrito.splice(indice, 1);
+
+    actualizarCarrito();
+  }
+
+  function enviarWhatsApp() {
+
+    if (carrito.length === 0) {
+
+      alert("Primero agregá algún producto al pedido.");
+
+      return;
+    }
+
+    let mensaje = "🍔 *NUEVO PEDIDO - EL CARRITO DE FRAN*%0A%0A";
+
+    let total = 0;
+
+    carrito.forEach(producto => {
+
+      mensaje += "• " + producto.nombre +
+                 " - $" + producto.precio + "%0A";
+
+      total += producto.precio;
+    });
+
+    mensaje += "%0A💰 *TOTAL: $" + total + "*";
+
+    const numero = "5492975414824";
+
+    const url =
+      "https://wa.me/" +
+      numero +
+      "?text=" +
+      mensaje;
+
+    window.open(url, "_blank");
+  }
+
+</script>
+
+</body>
+</html>
