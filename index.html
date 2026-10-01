@@ -385,7 +385,60 @@ footer p {
 
 }
 
-</style>
+/* ================= CARRITO FLOTANTE ================= */
+
+.carrito-flotante {
+  position: fixed;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 30px);
+  max-width: 500px;
+  background: #e98eaa;
+  color: white;
+  padding: 13px 18px;
+  border-radius: 18px;
+  box-shadow: 0 6px 20px rgba(120, 50, 75, 0.30);
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  z-index: 9999;
+  cursor: pointer;
+  border: 2px solid #ffffff;
+}
+
+.carrito-flotante.visible {
+  display: flex;
+}
+
+.carrito-flotante strong {
+  font-size: 15px;
+}
+
+.carrito-flotante .carrito-total {
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.carrito-flotante .ver-pedido {
+  background: white;
+  color: #c94f78;
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+@media (max-width: 600px) {
+
+  .carrito-flotante {
+    bottom: 12px;
+    width: calc(100% - 20px);
+    padding: 12px 14px;
+  }
+
+}</style>
 </head>
 
 <body>
@@ -1001,22 +1054,38 @@ function agregar(nombre, precio) {
 }
 
 function actualizarCarrito() {
+  function irAlCarrito() {
+
+  document.querySelector(".carrito").scrollIntoView({
+    behavior: "smooth"
+  });
+
+}
 
   const lista =
-    document.getElementById("lista-carrito");
+    document.getElementById("lista-carrito");const carritoFlotante =
+    document.getElementById("carritoFlotante");
+
+const cantidadFlotante =
+    document.getElementById("cantidadFlotante");
+
+const totalFlotante =
+    document.getElementById("totalFlotante");
 
   const totalElemento =
     document.getElementById("total");
 
-  if (carrito.length === 0) {
+ if (carrito.length === 0) {
 
     lista.innerHTML =
       "Todavía no agregaste productos.";
 
     totalElemento.innerText = "0";
 
+    carritoFlotante.classList.remove("visible");
+
     return;
-  }
+}
 
   let html = "";
   let total = 0;
@@ -1076,7 +1145,21 @@ function actualizarCarrito() {
   lista.innerHTML = html;
 
   totalElemento.innerText =
-    total.toLocaleString("es-AR");
+    total.toLocaleString("es-AR");let cantidadTotal = 0;
+
+carrito.forEach(producto => {
+  cantidadTotal += producto.cantidad;
+});
+
+cantidadFlotante.innerText =
+  cantidadTotal === 1
+    ? "1 producto"
+    : cantidadTotal + " productos";
+
+totalFlotante.innerText =
+  total.toLocaleString("es-AR");
+
+carritoFlotante.classList.add("visible");
 }
 
 function aumentar(indice) {
@@ -1244,5 +1327,25 @@ function enviarWhatsApp() {
 
 </script>
 
-</body>
+</body><!-- CARRITO FLOTANTE -->
+
+<div
+  id="carritoFlotante"
+  class="carrito-flotante"
+  onclick="irAlCarrito()"
+>
+
+  <div>
+    🛒 <strong id="cantidadFlotante">0 productos</strong>
+  </div>
+
+  <div class="carrito-total">
+    $<span id="totalFlotante">0</span>
+  </div>
+
+  <div class="ver-pedido">
+    VER PEDIDO →
+  </div>
+
+</div>
 </html>
