@@ -94,6 +94,45 @@ header p {
   color: #5a303d;
 }
 
+/* ================= CATEGORÍAS MENU ================= */
+
+.categorias-menu {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 5px 2px 15px;
+  margin-bottom: 20px;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+.categorias-menu::-webkit-scrollbar {
+  display: none;
+}
+
+.categorias-menu a {
+  flex: 0 0 auto;
+  background: #ffffff;
+  color: #6b3546;
+  border: 2px solid #f0b9cb;
+  padding: 10px 15px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+  box-shadow: 0 3px 8px rgba(180, 90, 120, 0.10);
+  transition: 0.2s;
+}
+
+.categorias-menu a:hover {
+  background: #e98eaa;
+  color: white;
+  border-color: #e98eaa;
+}
+
+html {
+  scroll-behavior: smooth;
+}
 /* ================= PRODUCTOS ================= */
 
 .producto {
@@ -378,10 +417,22 @@ HACÉ TU PEDIDO
 📋 NUESTRO MENÚ
 </h2>
 
+<!-- ================= CATEGORÍAS ================= -->
+
+<div class="categorias-menu">
+
+<a href="#papas">🍟 Papas</a>
+<a href="#empanadas">🥟 Empanadas</a>
+<a href="#hamburguesas">🍔 Hamburguesas</a>
+<a href="#sandwich">🥩 Sándwich</a>
+<a href="#pizzas">🍕 Pizzas</a>
+<a href="#panchos">🌭 Panchos</a>
+
+</div>
 
 <!-- ================= PAPAS ================= -->
 
-<h2 class="categoria">🍟 PAPAS</h2>
+<h2 class="categoria" id="papas">🍟 PAPAS</h2>
 
 <div class="producto">
 <h3>Bandeja grande de papas fritas</h3>
@@ -429,7 +480,7 @@ AGREGAR AL PEDIDO
 
 <!-- ================= EMPANADAS ================= -->
 
-<h2 class="categoria">🥟 EMPANADAS</h2>
+<h2 class="categoria" id="empanadas">🥟 EMPANADAS</h2>
 
 <div class="producto">
 <h3>Empanadas de carne — Docena</h3>
@@ -514,7 +565,7 @@ AGREGAR AL PEDIDO
 
 <!-- ================= HAMBURGUESAS ================= -->
 
-<h2 class="categoria">🍔 HAMBURGUESAS</h2>
+<h2 class="categoria" id="hamburguesas">🍔 HAMBURGUESAS</h2>
 
 <div class="producto">
 <h3>Hamburguesa simple + fritas</h3>
@@ -578,7 +629,7 @@ AGREGAR AL PEDIDO
 
 <!-- ================= SANDWICH ================= -->
 
-<h2 class="categoria">🥩 SÁNDWICH</h2>
+<h2 class="categoria" id="sandwich">🥩 SÁNDWICH</h2>
 
 <div class="producto">
 <h3>Sándwich de milanesa completo + fritas</h3>
@@ -634,7 +685,7 @@ AGREGAR AL PEDIDO
 
 <!-- ================= PIZZAS ================= -->
 
-<h2 class="categoria">🍕 PIZZAS</h2>
+<h2 class="categoria" id="pizzas">🍕 PIZZAS</h2>
 
 <div class="producto">
 <h3>Pizza especial de morrón</h3>
@@ -752,7 +803,7 @@ AGREGAR AL PEDIDO
 
 <!-- ================= PANCHOS ================= -->
 
-<h2 class="categoria">🌭 PANCHOS</h2>
+<h2 class="categoria" id="panchos">🌭 PANCHOS</h2>
 
 <div class="producto">
 <h3>Salchifull XL</h3>
