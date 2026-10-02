@@ -1173,9 +1173,14 @@ carritoFlotante.classList.add("visible");
 
 function irAlCarrito() {
 
-  document.querySelector(".carrito").scrollIntoView({
-    behavior: "smooth"
-  });
+  const carrito = document.querySelector(".carrito");
+
+  if (carrito) {
+    carrito.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+  }
 
 }
 function aumentar(indice) {
@@ -1348,7 +1353,6 @@ function enviarWhatsApp() {
 <div
   id="carritoFlotante"
   class="carrito-flotante"
-  onclick="irAlCarrito()"
 >
 
   <div>
@@ -1359,9 +1363,12 @@ function enviarWhatsApp() {
     $<span id="totalFlotante">0</span>
   </div>
 
-  <div class="ver-pedido">
-    VER PEDIDO →
-  </div>
+ <div
+  class="ver-pedido"
+  onclick="irAlCarrito()"
+>
+  VER PEDIDO →
+</div>
 
 </div>
 </html>
