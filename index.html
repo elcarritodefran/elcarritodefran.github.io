@@ -1054,13 +1054,6 @@ function agregar(nombre, precio) {
 }
 
 function actualizarCarrito() {
-  function irAlCarrito() {
-
-  document.querySelector(".carrito").scrollIntoView({
-    behavior: "smooth"
-  });
-
-}
 
   const lista =
     document.getElementById("lista-carrito");const carritoFlotante =
@@ -1145,7 +1138,23 @@ const totalFlotante =
   lista.innerHTML = html;
 
   totalElemento.innerText =
-    total.toLocaleString("es-AR");let cantidadTotal = 0;
+    total.toLocaleString("es-AR");
+  
+let cantidadTotal = 0;
+
+carrito.forEach(producto => {
+  cantidadTotal += producto.cantidad;
+});
+
+cantidadFlotante.innerText =
+  cantidadTotal === 1
+    ? "1 producto"
+    : cantidadTotal + " productos";
+
+totalFlotante.innerText =
+  total.toLocaleString("es-AR");
+
+carritoFlotante.classList.add("visible");
 
 carrito.forEach(producto => {
   cantidadTotal += producto.cantidad;
@@ -1162,6 +1171,13 @@ totalFlotante.innerText =
 carritoFlotante.classList.add("visible");
 }
 
+function irAlCarrito() {
+
+  document.querySelector(".carrito").scrollIntoView({
+    behavior: "smooth"
+  });
+
+}
 function aumentar(indice) {
 
   carrito[indice].cantidad++;
