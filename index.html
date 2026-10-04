@@ -973,6 +973,18 @@ placeholder="Tu nombre"
 >
 
 <select id="tipoPedido">
+  <div id="zonaDeliveryContainer" style="display:none;">
+  <label for="zonaDelivery"><strong>🚚 Zona de delivery</strong></label>
+
+  <select id="zonaDelivery" onchange="actualizarCarrito()">
+    <option value="">Seleccioná tu zona</option>
+    <option value="2000">📍 Próspero Palazzo — +$2.000</option>
+    <option value="2000">📍 Ciudadela — +$2.000</option>
+    <option value="3000">📍 Km 8 / Standard — +$3.000</option>
+    <option value="4000">📍 Castelli — +$4.000</option>
+    <option value="consultar">🏠 Otra zona — Consultar</option>
+  </select>
+</div>
 
 <option value="">
 ¿Cómo querés recibir tu pedido?
@@ -1156,6 +1168,27 @@ const totalFlotante =
 
   totalElemento.innerText =
     total.toLocaleString("es-AR");
+  let recargoDelivery = 0;
+
+const tipoPedido =
+  document.getElementById("tipoPedido")?.value;
+
+const zonaDelivery =
+  document.getElementById("zonaDelivery")?.value;
+
+if (
+  tipoPedido === "Delivery" &&
+  zonaDelivery !== "" &&
+  zonaDelivery !== "consultar"
+) {
+  recargoDelivery = Number(zonaDelivery);
+}
+
+const totalConDelivery =
+  total + recargoDelivery;
+
+totalElemento.innerText =
+  totalConDelivery.toLocaleString("es-AR");
   
 let cantidadTotal = 0;
 
@@ -1168,11 +1201,8 @@ carrito.forEach(producto => {
       ? "1 producto"
       : cantidadTotal + " productos";
 
-  totalFlotante.innerText =
-    total.toLocaleString("es-AR");
-
-  carritoFlotante.classList.add("visible");
-}
+ totalFlotante.innerText =
+  totalConDelivery.toLocaleString("es-AR");
 
 function irAlCarrito() {
 
@@ -1221,7 +1251,22 @@ function vaciarCarrito() {
 
   actualizarCarrito();
 }
+document.getElementById("tipoPedido").addEventListener("change", function() {
+  const zonaContainer =
+    document.getElementById("zonaDeliveryContainer");
 
+  const zona =
+    document.getElementById("zonaDelivery");
+
+  if (this.value === "Delivery") {
+    zonaContainer.style.display = "block";
+  } else {
+    zonaContainer.style.display = "none";
+    zona.value = "";
+  }
+
+  actualizarCarrito();
+});
 function enviarWhatsApp() {
 
   if (carrito.length === 0) {
@@ -1305,6 +1350,18 @@ function enviarWhatsApp() {
   mensaje += "🛒 *PRODUCTOS*%0A";
 
   let total = 0;
+  let recargoDelivery = 0;
+
+const zonaDelivery =
+  document.getElementById("zonaDelivery")?.value;
+
+if (
+  tipoPedido === "Delivery" &&
+  zonaDelivery !== "" &&
+  zonaDelivery !== "consultar"
+) {
+  recargoDelivery = Number(zonaDelivery);
+}
 
   carrito.forEach(producto => {
 
@@ -1323,11 +1380,38 @@ function enviarWhatsApp() {
       "%0A";
 
   });
+if (tipoPedido === "Delivery") {
+
+  let textoZona =
+    document.getElementById("zonaDelivery")
+      .options[
+        document.getElementById("zonaDelivery").selectedIndex
+      ].text;
 
   mensaje +=
-    "%0A💰 *TOTAL: $" +
-    total.toLocaleString("es-AR") +
-    "*";
+    "%0A🚚 *DELIVERY*%0A" +
+    "📍 *Zona:* " +
+    encodeURIComponent(textoZona);
+
+  if (zonaDelivery === "consultar") {
+
+    mensaje +=
+      "%0A💵 *Recargo:* A consultar";
+
+  } else {
+
+    mensaje +=
+      "%0A💵 *Recargo delivery:* $" +
+      recargoDelivery.toLocaleString("es-AR");
+  }
+}
+
+const totalFinal =
+  total + recargoDelivery;
+ mensaje +=
+  "%0A%0A💰 *TOTAL: $" +
+  totalFinal.toLocaleString("es-AR") +
+  "*";
 
   if (observaciones !== "") {
 
