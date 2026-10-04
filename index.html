@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -12,6 +13,10 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -105,7 +110,7 @@ header p {
   color: #5a303d;
 }
 
-/* ================= CATEGORÍAS MENU ================= */
+/* ================= MENU CATEGORIAS ================= */
 
 .categorias-menu {
   display: flex;
@@ -113,7 +118,6 @@ header p {
   overflow-x: auto;
   padding: 5px 2px 15px;
   margin-bottom: 20px;
-  scroll-behavior: smooth;
   scrollbar-width: none;
 }
 
@@ -141,9 +145,6 @@ header p {
   border-color: #e98eaa;
 }
 
-html {
-  scroll-behavior: smooth;
-}
 /* ================= PRODUCTOS ================= */
 
 .producto {
@@ -180,8 +181,6 @@ html {
   margin-bottom: 12px;
   color: #c94f78;
 }
-
-/* BOTON AGREGAR */
 
 .producto button {
   width: 100%;
@@ -220,7 +219,7 @@ html {
   color: #432932;
 }
 
-/* ITEMS */
+/* ================= ITEMS CARRITO ================= */
 
 .item-carrito {
   display: flex;
@@ -252,8 +251,6 @@ html {
   background: #dc7d9b;
 }
 
-/* ELIMINAR */
-
 .controles .eliminar {
   background: #d9534f !important;
 }
@@ -262,7 +259,7 @@ html {
   background: #c9302c !important;
 }
 
-/* TOTAL */
+/* ================= TOTAL ================= */
 
 .total {
   font-size: 23px;
@@ -305,6 +302,22 @@ html {
 .formulario textarea {
   min-height: 80px;
   resize: vertical;
+}
+
+/* ================= DELIVERY ================= */
+
+.delivery-box {
+  background: #fff0f5;
+  border: 2px solid #f2c2d1;
+  border-radius: 12px;
+  padding: 14px;
+  margin-bottom: 12px;
+}
+
+.delivery-box strong {
+  display: block;
+  margin-bottom: 8px;
+  color: #6b3546;
 }
 
 /* ================= WHATSAPP ================= */
@@ -357,45 +370,6 @@ footer p {
   margin: 5px;
 }
 
-/* ================= MOBILE ================= */
-
-@media (max-width: 600px) {
-
-  header {
-    padding: 30px 15px;
-  }
-
-  header h1 {
-    font-size: 28px;
-  }
-
-  .titulo {
-    font-size: 25px;
-  }
-
-  .categoria {
-    font-size: 22px;
-  }
-
-  .producto {
-    padding: 16px;
-  }
-
-  .producto h3 {
-    font-size: 18px;
-  }
-
-  .item-carrito {
-    align-items: flex-start;
-    flex-direction: column;
-  }
-
-  .controles {
-    margin-top: 5px;
-  }
-
-}
-
 /* ================= CARRITO FLOTANTE ================= */
 
 .carrito-flotante {
@@ -441,7 +415,42 @@ footer p {
   font-weight: bold;
 }
 
+/* ================= MOBILE ================= */
+
 @media (max-width: 600px) {
+
+  header {
+    padding: 30px 15px;
+  }
+
+  header h1 {
+    font-size: 28px;
+  }
+
+  .titulo {
+    font-size: 25px;
+  }
+
+  .categoria {
+    font-size: 22px;
+  }
+
+  .producto {
+    padding: 16px;
+  }
+
+  .producto h3 {
+    font-size: 18px;
+  }
+
+  .item-carrito {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .controles {
+    margin-top: 5px;
+  }
 
   .carrito-flotante {
     bottom: 12px;
@@ -449,7 +458,9 @@ footer p {
     padding: 12px 14px;
   }
 
-}</style>
+}
+
+</style>
 </head>
 
 <body>
@@ -462,11 +473,13 @@ footer p {
   class="logo"
 >
 
+<h1>🍔 El Carrito de Fran</h1>
+
 <p>🍽️ COMIDA CASERA</p>
 
 <p>📍 Comodoro Rivadavia</p>
 
-<p>🕐 Abrimos de 20:00 a 22:00</p>
+<p>🕐 Abrimos de 20:00 a 23:00</p>
 
 <div class="estado">
 🟢 TOMAMOS PEDIDOS
@@ -487,7 +500,7 @@ HACÉ TU PEDIDO
 📋 NUESTRO MENÚ
 </h2>
 
-<!-- ================= CATEGORÍAS ================= -->
+<!-- ================= CATEGORIAS ================= -->
 
 <div class="categorias-menu">
 
@@ -499,6 +512,7 @@ HACÉ TU PEDIDO
 <a href="#panchos">🌭 Panchos</a>
 
 </div>
+
 
 <!-- ================= PAPAS ================= -->
 
@@ -844,7 +858,11 @@ AGREGAR AL PEDIDO
 </div>
 
 
-<h2 class="categoria">🍕 PIZZAS RECTANGULARES 50 × 25 CM</h2>
+<!-- ================= PIZZAS RECTANGULARES ================= -->
+
+<h2 class="categoria">
+🍕 PIZZAS RECTANGULARES 50 × 25 CM
+</h2>
 
 <div class="producto">
 <h3>Muzzarella / Mia Pizza / Paisana</h3>
@@ -950,7 +968,7 @@ AGREGAR AL PEDIDO
 
 <!-- ================= CARRITO ================= -->
 
-<div class="carrito">
+<div class="carrito" id="carrito">
 
 <h2>🛒 TU PEDIDO</h2>
 
@@ -961,6 +979,7 @@ Todavía no agregaste productos.
 <div class="total">
 TOTAL: $<span id="total">0</span>
 </div>
+
 
 <div class="formulario">
 
@@ -973,9 +992,6 @@ placeholder="Tu nombre"
 >
 
 <select id="tipoPedido">
-
-  </select>
-</div>
 
 <option value="">
 ¿Cómo querés recibir tu pedido?
@@ -991,11 +1007,54 @@ Delivery
 
 </select>
 
+
+<!-- ================= ZONA DELIVERY ================= -->
+
+<div
+id="zonaDeliveryContainer"
+class="delivery-box"
+style="display:none;"
+>
+
+<strong>🚚 Seleccioná tu zona</strong>
+
+<select id="zonaDelivery">
+
+<option value="">
+Seleccioná tu zona
+</option>
+
+<option value="2000">
+📍 Prospero Palazzo — +$2.000
+</option>
+
+<option value="2000">
+📍 Ciudadela — +$2.000
+</option>
+
+<option value="3000">
+📍 Km 8 / Estándar — +$3.000
+</option>
+
+<option value="4000">
+📍 Castelli — +$4.000
+</option>
+
+<option value="consultar">
+🏠 Otra zona — Consultar
+</option>
+
+</select>
+
+</div>
+
+
 <input
 type="text"
 id="direccion"
 placeholder="Dirección (solo si es delivery)"
 >
+
 
 <select id="pago">
 
@@ -1013,6 +1072,7 @@ Mercado Pago
 
 </select>
 
+
 <textarea
 id="observaciones"
 placeholder="Observaciones del pedido (opcional)"
@@ -1020,12 +1080,14 @@ placeholder="Observaciones del pedido (opcional)"
 
 </div>
 
+
 <button
 class="boton-whatsapp"
 onclick="enviarWhatsApp()"
 >
 🟢 CONFIRMAR PEDIDO POR WHATSAPP
 </button>
+
 
 <button
 class="vaciar"
@@ -1038,6 +1100,31 @@ Vaciar pedido
 
 </div>
 
+
+<!-- ================= CARRITO FLOTANTE ================= -->
+
+<div
+id="carritoFlotante"
+class="carrito-flotante"
+onclick="irAlCarrito()"
+>
+
+<div>
+🛒 <strong id="cantidadFlotante">0 productos</strong>
+</div>
+
+<div class="carrito-total">
+$<span id="totalFlotante">0</span>
+</div>
+
+<div class="ver-pedido">
+VER PEDIDO →
+</div>
+
+</div>
+
+
+<!-- ================= FOOTER ================= -->
 
 <footer>
 
@@ -1054,6 +1141,9 @@ Vaciar pedido
 
 let carrito = [];
 
+
+/* ================= AGREGAR ================= */
+
 function agregar(nombre, precio) {
 
   let productoExistente = carrito.find(
@@ -1061,34 +1151,86 @@ function agregar(nombre, precio) {
   );
 
   if (productoExistente) {
+
     productoExistente.cantidad++;
+
   } else {
+
     carrito.push({
       nombre: nombre,
       precio: precio,
       cantidad: 1
     });
+
   }
 
   actualizarCarrito();
 }
 
+
+/* ================= TOTAL PRODUCTOS ================= */
+
+function calcularSubtotal() {
+
+  let total = 0;
+
+  carrito.forEach(producto => {
+
+    total += producto.precio * producto.cantidad;
+
+  });
+
+  return total;
+
+}
+
+
+/* ================= RECARGO DELIVERY ================= */
+
+function obtenerRecargoDelivery() {
+
+  const tipoPedido =
+    document.getElementById("tipoPedido").value;
+
+  const zona =
+    document.getElementById("zonaDelivery").value;
+
+  if (
+    tipoPedido !== "Delivery" ||
+    zona === "" ||
+    zona === "consultar"
+  ) {
+
+    return 0;
+
+  }
+
+  return Number(zona);
+
+}
+
+
+/* ================= ACTUALIZAR CARRITO ================= */
+
 function actualizarCarrito() {
 
   const lista =
-    document.getElementById("lista-carrito");const carritoFlotante =
-    document.getElementById("carritoFlotante");
-
-const cantidadFlotante =
-    document.getElementById("cantidadFlotante");
-
-const totalFlotante =
-    document.getElementById("totalFlotante");
+    document.getElementById("lista-carrito");
 
   const totalElemento =
     document.getElementById("total");
 
- if (carrito.length === 0) {
+  const carritoFlotante =
+    document.getElementById("carritoFlotante");
+
+  const cantidadFlotante =
+    document.getElementById("cantidadFlotante");
+
+  const totalFlotante =
+    document.getElementById("totalFlotante");
+
+
+  if (carrito.length === 0) {
 
     lista.innerHTML =
       "Todavía no agregaste productos.";
@@ -1098,17 +1240,16 @@ const totalFlotante =
     carritoFlotante.classList.remove("visible");
 
     return;
-}
+
+  }
+
 
   let html = "";
-  let total = 0;
 
   carrito.forEach((producto, indice) => {
 
-    let subtotal =
+    const subtotal =
       producto.precio * producto.cantidad;
-
-    total += subtotal;
 
     html += `
 
@@ -1155,64 +1296,60 @@ const totalFlotante =
 
   });
 
+
   lista.innerHTML = html;
 
+
+  const subtotal =
+    calcularSubtotal();
+
+  const recargo =
+    obtenerRecargoDelivery();
+
+  const totalFinal =
+    subtotal + recargo;
+
+
   totalElemento.innerText =
-    total.toLocaleString("es-AR");
-  let recargoDelivery = 0;
+    totalFinal.toLocaleString("es-AR");
 
-const tipoPedido =
-  document.getElementById("tipoPedido")?.value;
 
-const zonaDelivery =
-  document.getElementById("zonaDelivery")?.value;
+  let cantidadTotal = 0;
 
-if (
-  tipoPedido === "Delivery" &&
-  zonaDelivery !== "" &&
-  zonaDelivery !== "consultar"
-) {
-  recargoDelivery = Number(zonaDelivery);
-}
+  carrito.forEach(producto => {
 
-const totalConDelivery =
-  total + recargoDelivery;
+    cantidadTotal += producto.cantidad;
 
-totalElemento.innerText =
-  totalConDelivery.toLocaleString("es-AR");
-  
-let cantidadTotal = 0;
+  });
 
-carrito.forEach(producto => {
-  cantidadTotal += producto.cantidad;
-});
 
   cantidadFlotante.innerText =
     cantidadTotal === 1
       ? "1 producto"
       : cantidadTotal + " productos";
 
- totalFlotante.innerText =
-  totalConDelivery.toLocaleString("es-AR");
 
-function irAlCarrito() {
+  totalFlotante.innerText =
+    totalFinal.toLocaleString("es-AR");
 
-  const carrito = document.querySelector(".carrito");
 
-  if (carrito) {
-    carrito.scrollIntoView({
-      behavior: "smooth",
-      block: "start"
-    });
-  }
+  carritoFlotante.classList.add("visible");
 
 }
+
+
+/* ================= AUMENTAR ================= */
+
 function aumentar(indice) {
 
   carrito[indice].cantidad++;
 
   actualizarCarrito();
+
 }
+
+
+/* ================= DISMINUIR ================= */
 
 function disminuir(indice) {
 
@@ -1227,22 +1364,57 @@ function disminuir(indice) {
   }
 
   actualizarCarrito();
+
 }
+
+
+/* ================= ELIMINAR ================= */
 
 function eliminar(indice) {
 
   carrito.splice(indice, 1);
 
   actualizarCarrito();
+
 }
+
+
+/* ================= VACIAR ================= */
 
 function vaciarCarrito() {
 
   carrito = [];
 
   actualizarCarrito();
+
 }
-document.getElementById("tipoPedido").addEventListener("change", function() {
+
+
+/* ================= IR AL CARRITO ================= */
+
+function irAlCarrito() {
+
+  const carritoElemento =
+    document.querySelector(".carrito");
+
+  if (carritoElemento) {
+
+    carritoElemento.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+
+  }
+
+}
+
+
+/* ================= CAMBIAR TIPO PEDIDO ================= */
+
+document
+.getElementById("tipoPedido")
+.addEventListener("change", function() {
+
   const zonaContainer =
     document.getElementById("zonaDeliveryContainer");
 
@@ -1250,14 +1422,35 @@ document.getElementById("tipoPedido").addEventListener("change", function() {
     document.getElementById("zonaDelivery");
 
   if (this.value === "Delivery") {
+
     zonaContainer.style.display = "block";
+
   } else {
+
     zonaContainer.style.display = "none";
+
     zona.value = "";
+
   }
 
   actualizarCarrito();
+
 });
+
+
+/* ================= CAMBIAR ZONA ================= */
+
+document
+.getElementById("zonaDelivery")
+.addEventListener("change", function() {
+
+  actualizarCarrito();
+
+});
+
+
+/* ================= WHATSAPP ================= */
+
 function enviarWhatsApp() {
 
   if (carrito.length === 0) {
@@ -1267,7 +1460,9 @@ function enviarWhatsApp() {
     );
 
     return;
+
   }
+
 
   const nombre =
     document.getElementById("nombre").value.trim();
@@ -1284,46 +1479,86 @@ function enviarWhatsApp() {
   const observaciones =
     document.getElementById("observaciones").value.trim();
 
+  const zonaSelect =
+    document.getElementById("zonaDelivery");
+
+
   if (nombre === "") {
 
-    alert("Por favor ingresá tu nombre.");
+    alert(
+      "Por favor ingresá tu nombre."
+    );
 
     return;
+
   }
+
 
   if (tipoPedido === "") {
 
-    alert("Seleccioná retiro o delivery.");
+    alert(
+      "Seleccioná retiro o delivery."
+    );
 
     return;
+
   }
 
-  if (tipoPedido === "Delivery" && direccion === "") {
 
-    alert("Ingresá la dirección para el delivery.");
+  if (
+    tipoPedido === "Delivery" &&
+    zonaSelect.value === ""
+  ) {
+
+    alert(
+      "Seleccioná la zona de delivery."
+    );
 
     return;
+
   }
+
+
+  if (
+    tipoPedido === "Delivery" &&
+    direccion === ""
+  ) {
+
+    alert(
+      "Ingresá la dirección para el delivery."
+    );
+
+    return;
+
+  }
+
 
   if (pago === "") {
 
-    alert("Seleccioná la forma de pago.");
+    alert(
+      "Seleccioná la forma de pago."
+    );
 
     return;
+
   }
+
 
   let mensaje =
     "🍔 *NUEVO PEDIDO - EL CARRITO DE FRAN*%0A%0A";
+
 
   mensaje +=
     "👤 *Cliente:* " +
     encodeURIComponent(nombre) +
     "%0A";
 
+
   mensaje +=
     "📦 *Pedido:* " +
     encodeURIComponent(tipoPedido) +
     "%0A";
+
 
   if (tipoPedido === "Delivery") {
 
@@ -1331,35 +1566,44 @@ function enviarWhatsApp() {
       "📍 *Dirección:* " +
       encodeURIComponent(direccion) +
       "%0A";
+
+
+    const textoZona =
+      zonaSelect.options[
+        zonaSelect.selectedIndex
+      ].text;
+
+
+    mensaje +=
+      "🚚 *Zona:* " +
+      encodeURIComponent(textoZona) +
+      "%0A";
+
   }
+
 
   mensaje +=
     "💳 *Pago:* " +
     encodeURIComponent(pago) +
     "%0A%0A";
 
-  mensaje += "🛒 *PRODUCTOS*%0A";
 
-  let total = 0;
-  let recargoDelivery = 0;
+  mensaje +=
+    "🛒 *PRODUCTOS*%0A";
 
-const zonaDelivery =
-  document.getElementById("zonaDelivery")?.value;
 
-if (
-  tipoPedido === "Delivery" &&
-  zonaDelivery !== "" &&
-  zonaDelivery !== "consultar"
-) {
-  recargoDelivery = Number(zonaDelivery);
-}
+  let subtotal = 0;
+
 
   carrito.forEach(producto => {
 
-    let subtotal =
-      producto.precio * producto.cantidad;
+    const importe =
+      producto.precio *
+      producto.cantidad;
 
-    total += subtotal;
+
+    subtotal += importe;
+
 
     mensaje +=
       "• " +
@@ -1367,42 +1611,47 @@ if (
       " × " +
       producto.cantidad +
       " — $" +
-      subtotal.toLocaleString("es-AR") +
+      importe.toLocaleString("es-AR") +
       "%0A";
 
   });
-if (tipoPedido === "Delivery") {
 
-  let textoZona =
-    document.getElementById("zonaDelivery")
-      .options[
-        document.getElementById("zonaDelivery").selectedIndex
-      ].text;
+
+  const recargo =
+    obtenerRecargoDelivery();
+
+
+  if (tipoPedido === "Delivery") {
+
+    mensaje += "%0A🚚 *DELIVERY*%0A";
+
+
+    if (zonaSelect.value === "consultar") {
+
+      mensaje +=
+        "💵 *Recargo:* A consultar%0A";
+
+    } else {
+
+      mensaje +=
+        "💵 *Recargo delivery:* $" +
+        recargo.toLocaleString("es-AR") +
+        "%0A";
+
+    }
+
+  }
+
+
+  const totalFinal =
+    subtotal + recargo;
+
 
   mensaje +=
-    "%0A🚚 *DELIVERY*%0A" +
-    "📍 *Zona:* " +
-    encodeURIComponent(textoZona);
+    "%0A💰 *TOTAL: $" +
+    totalFinal.toLocaleString("es-AR") +
+    "*";
 
-  if (zonaDelivery === "consultar") {
-
-    mensaje +=
-      "%0A💵 *Recargo:* A consultar";
-
-  } else {
-
-    mensaje +=
-      "%0A💵 *Recargo delivery:* $" +
-      recargoDelivery.toLocaleString("es-AR");
-  }
-}
-
-const totalFinal =
-  total + recargoDelivery;
- mensaje +=
-  "%0A%0A💰 *TOTAL: $" +
-  totalFinal.toLocaleString("es-AR") +
-  "*";
 
   if (observaciones !== "") {
 
@@ -1412,8 +1661,15 @@ const totalFinal =
 
   }
 
+
+  /*
+   * NÚMERO DE WHATSAPP
+   * El Carrito de Fran
+   */
+
   const numero =
     "5492975414824";
+
 
   const url =
     "https://wa.me/" +
@@ -1421,32 +1677,21 @@ const totalFinal =
     "?text=" +
     mensaje;
 
-  window.open(url, "_blank");
+
+  window.open(
+    url,
+    "_blank"
+  );
+
 }
+
+
+/* ================= INICIO ================= */
+
+actualizarCarrito();
 
 </script>
 
-</body><!-- CARRITO FLOTANTE -->
-
-<div
-  id="carritoFlotante"
-  class="carrito-flotante"
->
-
-  <div>
-    🛒 <strong id="cantidadFlotante">0 productos</strong>
-  </div>
-
-  <div class="carrito-total">
-    $<span id="totalFlotante">0</span>
-  </div>
-
- <div
-  class="ver-pedido"
-  onclick="irAlCarrito()"
->
-  VER PEDIDO →
-</div>
-
-</div>
+</body>
 </html>
+```
