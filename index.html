@@ -1163,29 +1163,15 @@ carrito.forEach(producto => {
   cantidadTotal += producto.cantidad;
 });
 
-cantidadFlotante.innerText =
-  cantidadTotal === 1
-    ? "1 producto"
-    : cantidadTotal + " productos";
+  cantidadFlotante.innerText =
+    cantidadTotal === 1
+      ? "1 producto"
+      : cantidadTotal + " productos";
 
-totalFlotante.innerText =
-  total.toLocaleString("es-AR");
+  totalFlotante.innerText =
+    total.toLocaleString("es-AR");
 
-carritoFlotante.classList.add("visible");
-
-carrito.forEach(producto => {
-  cantidadTotal += producto.cantidad;
-});
-
-cantidadFlotante.innerText =
-  cantidadTotal === 1
-    ? "1 producto"
-    : cantidadTotal + " productos";
-
-totalFlotante.innerText =
-  total.toLocaleString("es-AR");
-
-carritoFlotante.classList.add("visible");
+  carritoFlotante.classList.add("visible");
 }
 
 function irAlCarrito() {
