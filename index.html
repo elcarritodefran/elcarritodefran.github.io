@@ -14,288 +14,227 @@
   padding: 0;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 body {
   font-family: Arial, Helvetica, sans-serif;
   background: #fff4f7;
-  color: #432932;
+  color: #333;
+  padding-bottom: 100px;
 }
-
-/* ================= LOGO ================= */
-
-.logo {
-  width: 220px;
-  max-width: 80%;
-  height: auto;
-  display: block;
-  margin: 0 auto 15px;
-  border-radius: 20px;
-}
-
-/* ================= HEADER ================= */
 
 header {
   background: #f7b6c9;
-  color: #432932;
+  padding: 20px 15px;
   text-align: center;
-  padding: 35px 20px;
-  border-bottom: 4px solid #e99ab2;
+  border-bottom: 3px solid #ef91ad;
+}
+
+header img {
+  max-width: 180px;
+  max-height: 120px;
+  object-fit: contain;
+  margin-bottom: 10px;
 }
 
 header h1 {
-  font-size: 34px;
-  margin-bottom: 8px;
-  font-weight: 900;
-  letter-spacing: 1px;
+  font-size: 28px;
+  color: #222;
+  margin-bottom: 5px;
 }
 
 header p {
-  color: #5d3742;
-  margin: 5px 0;
+  font-size: 15px;
+  margin: 4px 0;
 }
 
 .estado {
   display: inline-block;
-  margin-top: 12px;
-  padding: 7px 14px;
-  background: #25D366;
-  color: white;
+  margin-top: 10px;
+  background: #fff;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-weight: bold;
+  color: #159447;
+}
+
+.contenedor {
+  width: 95%;
+  max-width: 1100px;
+  margin: 20px auto;
+}
+
+.categorias {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 5px 0 15px;
+  scrollbar-width: thin;
+}
+
+.categorias a {
+  flex: 0 0 auto;
+  text-decoration: none;
+  background: #f8b6c8;
+  color: #222;
+  padding: 10px 14px;
   border-radius: 20px;
   font-weight: bold;
   font-size: 14px;
 }
 
-.boton-principal {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 14px 25px;
-  background: #e98eaa;
-  color: white;
-  text-decoration: none;
-  border-radius: 30px;
-  font-weight: bold;
-  box-shadow: 0 4px 10px rgba(180, 80, 110, 0.18);
-}
-
-.boton-principal:hover {
-  background: #dc7d9b;
-}
-
-/* ================= CONTENEDOR ================= */
-
-.contenedor {
-  max-width: 950px;
-  margin: auto;
-  padding: 20px 15px 120px;
-}
-
-.titulo {
-  text-align: center;
-  font-size: 29px;
-  margin: 25px 0;
-  color: #432932;
-}
-
-/* ================= CATEGORIAS ================= */
-
 .categoria {
-  font-size: 25px;
-  margin: 35px 0 15px;
-  padding-bottom: 8px;
-  border-bottom: 3px solid #e9a0b7;
-  color: #5a303d;
+  margin-bottom: 30px;
 }
 
-/* ================= MENU CATEGORIAS ================= */
-
-.categorias-menu {
-  display: flex;
-  gap: 10px;
-  overflow-x: auto;
-  padding: 5px 2px 15px;
-  margin-bottom: 20px;
-  scrollbar-width: none;
+.categoria h2 {
+  background: #f8b6c8;
+  border-left: 6px solid #e98eaa;
+  padding: 10px 14px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  color: #222;
 }
 
-.categorias-menu::-webkit-scrollbar {
-  display: none;
+.productos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 15px;
 }
-
-.categorias-menu a {
-  flex: 0 0 auto;
-  background: #ffffff;
-  color: #6b3546;
-  border: 2px solid #f0b9cb;
-  padding: 10px 15px;
-  border-radius: 25px;
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: bold;
-  box-shadow: 0 3px 8px rgba(180, 90, 120, 0.10);
-  transition: 0.2s;
-}
-
-.categorias-menu a:hover {
-  background: #e98eaa;
-  color: white;
-  border-color: #e98eaa;
-}
-
-/* ================= PRODUCTOS ================= */
 
 .producto {
-  background: #ffffff;
-  border: 2px solid #f4c8d5;
-  border-radius: 18px;
-  padding: 18px;
-  margin-bottom: 14px;
-  box-shadow: 0 4px 12px rgba(180, 90, 120, 0.10);
-  transition: 0.2s;
-}
-
-.producto:hover {
-  border-color: #e99ab2;
-  transform: translateY(-2px);
+  background: white;
+  border: 2px solid #f5bfd0;
+  border-radius: 15px;
+  padding: 15px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.05);
 }
 
 .producto h3 {
-  font-size: 19px;
-  margin-bottom: 7px;
-  color: #432932;
+  font-size: 18px;
+  margin-bottom: 8px;
 }
 
-.descripcion {
-  color: #765863;
+.producto p {
   font-size: 14px;
-  margin-bottom: 12px;
-  line-height: 1.4;
+  color: #666;
+  margin-bottom: 10px;
 }
 
 .precio {
   font-size: 20px;
   font-weight: bold;
+  color: #d94f79;
   margin-bottom: 12px;
-  color: #c94f78;
 }
 
-.producto button {
+.btn {
   width: 100%;
-  padding: 13px;
-  background: #e98eaa;
-  color: white;
   border: none;
+  background: #ef91ad;
+  color: white;
+  padding: 11px;
   border-radius: 10px;
+  cursor: pointer;
   font-size: 15px;
   font-weight: bold;
-  cursor: pointer;
-  transition: 0.2s;
 }
 
-.producto button:hover {
-  background: #dc7d9b;
+.btn:hover {
+  background: #df7898;
 }
 
-.producto button:active {
-  transform: scale(0.98);
-}
-
-/* ================= CARRITO ================= */
-
-.carrito {
-  background: #ffffff;
-  border: 2px solid #f0b9cb;
+#carrito {
+  background: white;
+  border: 3px solid #f5bfd0;
   border-radius: 18px;
-  padding: 22px;
-  margin-top: 40px;
-  box-shadow: 0 5px 18px rgba(180, 90, 120, 0.14);
+  padding: 20px;
+  margin-top: 30px;
 }
 
-.carrito h2 {
-  margin-bottom: 18px;
-  color: #432932;
+#carrito h2 {
+  margin-bottom: 15px;
 }
-
-/* ================= ITEMS CARRITO ================= */
 
 .item-carrito {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   gap: 10px;
-  border-bottom: 1px solid #f0d4dc;
-  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+  padding: 10px 0;
 }
 
-.controles {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+.item-info {
+  flex: 1;
 }
 
-.controles button {
-  width: 30px;
-  height: 30px;
+.item-nombre {
+  font-weight: bold;
+}
+
+.item-precio {
+  color: #d94f79;
+  font-weight: bold;
+}
+
+.btn-eliminar {
+  background: #e57373;
+  color: white;
   border: none;
   border-radius: 7px;
-  background: #e98eaa;
-  color: white;
-  font-weight: bold;
+  padding: 5px 8px;
   cursor: pointer;
 }
 
-.controles button:hover {
-  background: #dc7d9b;
+.resumen {
+  margin-top: 18px;
+  border-top: 2px solid #f5bfd0;
+  padding-top: 15px;
 }
 
-.controles .eliminar {
-  background: #d9534f !important;
+.resumen-linea {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  font-size: 16px;
 }
 
-.controles .eliminar:hover {
-  background: #c9302c !important;
-}
-
-/* ================= TOTAL ================= */
-
-.total {
-  font-size: 23px;
+.resumen-linea.total {
+  font-size: 22px;
   font-weight: bold;
-  margin: 20px 0;
-  color: #b9436b;
+  color: #d94f79;
+  border-top: 2px solid #f5bfd0;
+  margin-top: 8px;
+  padding-top: 12px;
 }
 
-/* ================= FORMULARIO ================= */
+.consulta-delivery {
+  color: #c77b00;
+  font-weight: bold;
+}
 
 .formulario {
   margin-top: 25px;
 }
 
 .formulario h3 {
-  margin-bottom: 15px;
-  color: #432932;
+  margin-bottom: 12px;
+}
+
+.formulario label {
+  display: block;
+  font-weight: bold;
+  margin-top: 12px;
+  margin-bottom: 5px;
 }
 
 .formulario input,
 .formulario select,
 .formulario textarea {
   width: 100%;
-  padding: 13px;
-  margin-bottom: 12px;
-  border: 2px solid #f2c2d1;
-  border-radius: 10px;
+  padding: 11px;
+  border: 1px solid #e8b4c5;
+  border-radius: 8px;
   font-size: 15px;
-  background: #fffafb;
-  color: #432932;
-}
-
-.formulario input:focus,
-.formulario select:focus,
-.formulario textarea:focus {
-  outline: none;
-  border-color: #e98eaa;
+  background: #fffafd;
 }
 
 .formulario textarea {
@@ -303,158 +242,75 @@ header p {
   resize: vertical;
 }
 
-/* ================= DELIVERY ================= */
-
-.delivery-box {
-  background: #fff0f5;
-  border: 2px solid #f2c2d1;
-  border-radius: 12px;
-  padding: 14px;
-  margin-bottom: 12px;
+#direccionBox,
+#zonaBox {
+  display: none;
 }
 
-.delivery-box strong {
-  display: block;
-  margin-bottom: 8px;
-  color: #6b3546;
-}
-
-/* ================= WHATSAPP ================= */
-
-.boton-whatsapp {
+.btn-whatsapp {
   width: 100%;
-  padding: 16px;
+  margin-top: 20px;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
   background: #25D366;
   color: white;
-  border: none;
-  border-radius: 10px;
-  font-size: 17px;
+  font-size: 18px;
   font-weight: bold;
   cursor: pointer;
-  margin-top: 5px;
 }
 
-.boton-whatsapp:hover {
+.btn-whatsapp:hover {
   background: #1ebe5d;
 }
 
-/* ================= VACIAR ================= */
-
-.vaciar {
-  width: 100%;
-  padding: 11px;
-  margin-top: 10px;
-  background: #f3dce3;
-  color: #6d3f4d;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-.vaciar:hover {
-  background: #ebc9d4;
-}
-
-/* ================= FOOTER ================= */
-
-footer {
-  background: #432932;
-  color: white;
-  text-align: center;
-  padding: 30px 15px;
-}
-
-footer p {
-  margin: 5px;
-}
-
-/* ================= CARRITO FLOTANTE ================= */
-
 .carrito-flotante {
   position: fixed;
-  bottom: 18px;
+  bottom: 15px;
   left: 50%;
   transform: translateX(-50%);
-  width: calc(100% - 30px);
+  width: 92%;
   max-width: 500px;
-  background: #e98eaa;
+  background: #ef91ad;
   color: white;
-  padding: 13px 18px;
-  border-radius: 18px;
-  box-shadow: 0 6px 20px rgba(120, 50, 75, 0.30);
-  display: none;
-  align-items: center;
-  justify-content: space-between;
-  gap: 15px;
-  z-index: 9999;
-  cursor: pointer;
-  border: 2px solid #ffffff;
-}
-
-.carrito-flotante.visible {
+  padding: 14px 18px;
+  border-radius: 30px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
   display: flex;
-}
-
-.carrito-flotante strong {
-  font-size: 15px;
-}
-
-.carrito-flotante .carrito-total {
-  font-size: 18px;
-  font-weight: 900;
-}
-
-.carrito-flotante .ver-pedido {
-  background: white;
-  color: #c94f78;
-  padding: 8px 12px;
-  border-radius: 10px;
-  font-size: 13px;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  z-index: 999;
   font-weight: bold;
 }
 
-/* ================= MOBILE ================= */
+.carrito-flotante small {
+  display: block;
+  font-weight: normal;
+}
+
+.vacio {
+  color: #777;
+  text-align: center;
+  padding: 15px;
+}
 
 @media (max-width: 600px) {
 
-  header {
-    padding: 30px 15px;
-  }
-
   header h1 {
-    font-size: 28px;
+    font-size: 24px;
   }
 
-  .titulo {
-    font-size: 25px;
-  }
-
-  .categoria {
-    font-size: 22px;
+  .productos {
+    grid-template-columns: 1fr;
   }
 
   .producto {
-    padding: 16px;
-  }
-
-  .producto h3 {
-    font-size: 18px;
+    padding: 14px;
   }
 
   .item-carrito {
-    align-items: flex-start;
-    flex-direction: column;
-  }
-
-  .controles {
-    margin-top: 5px;
-  }
-
-  .carrito-flotante {
-    bottom: 12px;
-    width: calc(100% - 20px);
-    padding: 12px 14px;
+    align-items: center;
   }
 
 }
@@ -466,674 +322,561 @@ footer p {
 
 <header>
 
-<img
-  src="logo.jpg"
-  alt="El Carrito de Fran"
-  class="logo"
->
+  <img src="logo.jpg" alt="El Carrito de Fran">
 
-<h1>🍔 El Carrito de Fran</h1>
+  <h1>🍔 El Carrito de Fran</h1>
 
-<p>🍽️ COMIDA CASERA</p>
+  <p>📍 Comodoro Rivadavia</p>
 
-<p>📍 Comodoro Rivadavia</p>
+  <p>🕗 Abrimos de 20:00 a 23:00</p>
 
-<p>🕐 Abrimos de 20:00 a 23:00</p>
-
-<div class="estado">
-🟢 TOMAMOS PEDIDOS
-</div>
-
-<br>
-
-<a href="#menu" class="boton-principal">
-HACÉ TU PEDIDO
-</a>
+  <div class="estado">🟢 TOMAMOS PEDIDOS</div>
 
 </header>
 
 
 <div class="contenedor">
 
-<h2 class="titulo" id="menu">
-📋 NUESTRO MENÚ
-</h2>
+  <div class="categorias">
+    <a href="#papas">🍟 Papas</a>
+    <a href="#empanadas">🥟 Empanadas</a>
+    <a href="#hamburguesas">🍔 Hamburguesas</a>
+    <a href="#sandwich">🥪 Sándwich</a>
+    <a href="#pizzas">🍕 Pizzas</a>
+    <a href="#pizzas-rectangulares">🍕 Rectangulares</a>
+    <a href="#panchos">🌭 Panchos</a>
+  </div>
+
+
+  <!-- PAPAS -->
+
+  <section class="categoria" id="papas">
+
+    <h2>🍟 PAPAS FRITAS</h2>
+
+    <div class="productos">
+
+      <div class="producto">
+        <h3>Bandeja grande de papas fritas</h3>
+        <div class="precio">$8.000</div>
+        <button class="btn" onclick="agregar('Bandeja grande de papas fritas',8000)">Agregar</button>
+      </div>
+
+      <div class="producto">
+        <h3>Bandeja chica de papas fritas</h3>
+        <div class="precio">$6.000</div>
+        <button class="btn" onclick="agregar('Bandeja chica de papas fritas',6000)">Agregar</button>
+      </div>
+
+      <div class="producto">
+        <h3>Bandeja grande de papas cheddar</h3>
+        <p>Panceta, cheddar y cebollita de verdeo</p>
+        <div class="precio">$16.000</div>
+        <button class="btn" onclick="agregar('Bandeja grande de papas cheddar',16000)">Agregar</button>
+      </div>
+
+      <div class="producto">
+        <h3>Cono de papas fritas</h3>
+        <div class="precio">$4.000</div>
+        <button class="btn" onclick="agregar('Cono de papas fritas',4000)">Agregar</button>
+      </div>
+
+      <div class="producto">
+        <h3>Tortilla de papa</h3>
+        <div class="precio">$12.000</div>
+        <button class="btn" onclick="agregar('Tortilla de papa',12000)">Agregar</button>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- EMPANADAS -->
+
+  <section class="categoria" id="empanadas">
+
+    <h2>🥟 EMPANADAS</h2>
+
+    <div class="productos">
+
+      <div class="producto">
+        <h3>Empanadas de carne</h3>
+        <p>Docena $19.000 | Media docena $12.000</p>
+        <button class="btn" onclick="agregar('Docena empanadas de carne',19000)">Docena $19.000</button>
+        <br><br>
+        <button class="btn" onclick="agregar('Media docena empanadas de carne',12000)">Media $12.000</button>
+      </div>
+
+      <div class="producto">
+        <h3>Empanadas JyQ</h3>
+        <p>Docena $19.000 | Media docena $14.000</p>
+        <button class="btn" onclick="agregar('Docena empanadas JyQ',19000)">Docena $19.000</button>
+        <br><br>
+        <button class="btn" onclick="agregar('Media docena empanadas JyQ',14000)">Media $14.000</button>
+      </div>
+
+      <div class="producto">
+        <h3>Empanadas de atún</h3>
+        <p>Docena $25.000 | Media docena $14.000</p>
+        <button class="btn" onclick="agregar('Docena empanadas de atún',25000)">Docena $25.000</button>
+        <br><br>
+        <button class="btn" onclick="agregar('Media docena empanadas de atún',14000)">Media $14.000</button>
+      </div>
+
+      <div class="producto">
+        <h3>Empanadas Roque Fort</h3>
+        <p>Docena $29.000 | Media docena $17.000</p>
+        <button class="btn" onclick="agregar('Docena empanadas Roque Fort',29000)">Docena $29.000</button>
+        <br><br>
+        <button class="btn" onclick="agregar('Media docena empanadas Roque Fort',17000)">Media $17.000</button>
+      </div>
+
+      <div class="producto">
+        <h3>Empanadas pizzera</h3>
+        <p>Docena $28.000 | Media docena $16.000</p>
+        <button class="btn" onclick="agregar('Docena empanadas pizzera',28000)">Docena $28.000</button>
+        <br><br>
+        <button class="btn" onclick="agregar('Media docena empanadas pizzera',16000)">Media $16.000</button>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- HAMBURGUESAS -->
+
+  <section class="categoria" id="hamburguesas">
+
+    <h2>🍔 HAMBURGUESAS</h2>
 
-<!-- ================= CATEGORIAS ================= -->
+    <div class="productos">
 
-<div class="categorias-menu">
+      <div class="producto">
+        <h3>Simple + fritas</h3>
+        <div class="precio">$13.000</div>
+        <button class="btn" onclick="agregar('Hamburguesa simple + fritas',13000)">Agregar</button>
+      </div>
 
-<a href="#papas">🍟 Papas</a>
-<a href="#empanadas">🥟 Empanadas</a>
-<a href="#hamburguesas">🍔 Hamburguesas</a>
-<a href="#sandwich">🥩 Sándwich</a>
-<a href="#pizzas">🍕 Pizzas</a>
-<a href="#panchos">🌭 Panchos</a>
+      <div class="producto">
+        <h3>Súper + fritas</h3>
+        <p>Mini tortilla de papa + verdeo</p>
+        <div class="precio">$19.500</div>
+        <button class="btn" onclick="agregar('Hamburguesa súper + fritas',19500)">Agregar</button>
+      </div>
 
-</div>
-
-
-<!-- ================= PAPAS ================= -->
-
-<h2 class="categoria" id="papas">🍟 PAPAS</h2>
-
-<div class="producto">
-<h3>Bandeja grande de papas fritas</h3>
-<div class="precio">$8.000</div>
-<button onclick="agregar('Bandeja grande de papas fritas',8000)">
-AGREGAR AL PEDIDO
-</button>
-</div>
-
-<div class="producto">
-<h3>Bandeja chica de papas fritas</h3>
-<div class="precio">$6.000</div>
-<button onclick="agregar('Bandeja chica de papas fritas',6000)">
-AGREGAR AL PEDIDO
-</button>
-</div>
-
-<div class="producto">
-<h3>Bandeja grande de papas cheddar</h3>
-<div class="descripcion">
-Panceta, cheddar y cebollita de verdeo.
-</div>
-<div class="precio">$16.000</div>
-<button onclick="agregar('Bandeja grande de papas cheddar',16000)">
-AGREGAR AL PEDIDO
-</button>
-</div>
-
-<div class="producto">
-<h3>Cono de papas fritas</h3>
-<div class="precio">$4.000</div>
-<button onclick="agregar('Cono de papas fritas',4000)">
-AGREGAR AL PEDIDO
-</button>
-</div>
-
-<div class="producto">
-<h3>Tortilla de papa</h3>
-<div class="precio">$12.000</div>
-<button onclick="agregar('Tortilla de papa',12000)">
-AGREGAR AL PEDIDO
-</button>
-</div>
-
-
-<!-- ================= EMPANADAS ================= -->
-
-<h2 class="categoria" id="empanadas">🥟 EMPANADAS</h2>
-
-<div class="producto">
-<h3>Empanadas de carne — Docena</h3>
-<div class="precio">$19.000</div>
-<button onclick="agregar('Empanadas de carne - docena',19000)">
-AGREGAR AL PEDIDO
-</button>
-</div>
-
-<div class="producto">
-<h3>Empanadas de carne — Media docena</h3>
-<div class="precio">$12.000</div>
-<button onclick="agregar('Empanadas de carne - media docena',12000)">
-AGREGAR AL PEDIDO
-</button>
-</div>
-
-<div class="producto">
-<h3>Empanadas de JyQ — Docena</h3>
-<div class="precio">$19.000</div>
-<button onclick="agregar('Empanadas de JyQ - docena',19000)">
-AGREGAR AL PEDIDO
-</button>
-</div>
-
-<div class="producto">
-<h3>Empanadas de JyQ — Media docena</h3>
-<div class="precio">$14.000</div>
-<button onclick="agregar('Empanadas de JyQ - media docena',14000)">
-AGREGAR AL PEDIDO
-</button>
-</div>
-
-<div class="producto">
-<h3>Empanadas de atún — Docena</h3>
-<div class="precio">$25.000</div>
-<button onclick="agregar('Empanadas de atún - docena',25000)">
-AGREGAR AL PEDIDO
-</button>
-</div>
-
-<div class="producto">
-<h3>Empanadas de atún — Media docena</h3>
-<div class="precio">$14.000</div>
-<button onclick="agregar('Empanadas de atún - media docena',14000)">
-AGREGAR AL PEDIDO
-</button>
-</div>
-
-<div class="producto">
-<h3>Empanadas de Roque Fort — Docena</h3>
-<div class="precio">$29.000</div>
-<button onclick="agregar('Empanadas de Roque Fort - docena',29000)">
-AGREGAR AL PEDIDO
-</button>
-</div>
-
-<div class="producto">
-<h3>Empanadas de Roque Fort — Media docena</h3>
-<div class="precio">$17.000</div>
-<button onclick="agregar('Empanadas de Roque Fort - media docena',17000)">
-AGREGAR AL PEDIDO
-</button>
-</div>
-
-<div class="producto">
-<h3>Empanadas pizzera — Docena</h3>
-<div class="precio">$28.000</div>
-<button onclick="agregar('Empanadas pizzera - docena',28000)">
-AGREGAR AL PEDIDO
-</button>
-</div>
-
-<div class="producto">
-<h3>Empanadas pizzera — Media docena</h3>
-<div class="precio">$16.000</div>
-<button onclick="agregar('Empanadas pizzera - media docena',16000)">
-AGREGAR AL PEDIDO
-</button>
-</div>
-
-
-<!-- ================= HAMBURGUESAS ================= -->
-
-<h2 class="categoria" id="hamburguesas">🍔 HAMBURGUESAS</h2>
-
-<div class="producto">
-<h3>Hamburguesa simple + fritas</h3>
-<div class="precio">$13.000</div>
-<button onclick="agregar('Hamburguesa simple + fritas',13000)">
-AGREGAR AL PEDIDO
-</button>
-</div>
-
-<div class="producto">
-<h3>Hamburguesa súper + fritas</h3>
-<div class="descripcion">
-Mini tortilla de papa con cebollita de verdeo.
-</div>
-<div class="precio">$19.500</div>
-<button onclick="agregar('Hamburguesa súper + fritas',19500)">
-AGREGAR AL PEDIDO
-</button>
-</div>
-
-<div class="producto">
-<h3>Hamburguesa especial + fritas</h3>
-<div class="precio">$17.000</div>
-<button onclick="agregar('Hamburguesa especial + fritas',17000)">
-AGREGAR AL PEDIDO
-</button>
-</div>
-
-<div class="producto">
-<h3>Hamburguesa gratinada + fritas</h3>
-<div class="precio">$18.000</div>
-<button onclick="agregar('Hamburguesa gratinada + fritas',18000)">
-AGREGAR AL PEDIDO
-</button>
-</div>
-
-<div class="producto">
-<h3>Hamburguesa gratinada de Roque Fort + fritas</h3>
-<div class="precio">$19.000</div>
-<button onclick="agregar('Hamburguesa gratinada de Roque Fort + fritas',19000)">
-AGREGAR AL PEDIDO
-</button>
-</div>
-
-<div class="producto">
-<h3>Hamburguesa doble carne + fritas</h3>
-<div class="precio">$20.000</div>
-<button onclick="agregar('Hamburguesa doble carne + fritas',20000)">
-AGREGAR AL PEDIDO
-</button>
-</div>
-
-<div class="producto">
-<h3>Hamburguesón + bandeja chica de papas</h3>
-<div class="precio">$30.000</div>
-<button onclick="agregar('Hamburguesón + bandeja chica de papas',30000)">
-AGREGAR AL PEDIDO
-</button>
-</div>
-
-
-<!-- ================= SANDWICH ================= -->
-
-<h2 class="categoria" id="sandwich">🥩 SÁNDWICH</h2>
-
-<div class="producto">
-<h3>Sándwich de milanesa completo + fritas</h3>
-<div class="descripcion">
-Para 2 personas.
-</div>
-<div class="precio">$25.000</div>
-<button onclick="agregar('Sándwich de milanesa completo + fritas',25000)">
-AGREGAR AL PEDIDO
-</button>
-</div>
-
-<div class="producto">
-<h3>Sándwich de bife a la criolla simple + fritas</h3>
-<div class="precio">$22.000</div>
-<button onclick="agregar('Sándwich de bife a la criolla simple + fritas',22000)">
-AGREGAR AL PEDIDO
-</button>
-</div>
-
-<div class="producto">
-<h3>Sándwich de bife a la criolla completo + fritas</h3>
-<div class="precio">$25.000</div>
-<button onclick="agregar('Sándwich de bife a la criolla completo + fritas',25000)">
-AGREGAR AL PEDIDO
-</button>
-</div>
-
-<div class="producto">
-<h3>Sándwich de desmechado de vacío + papas a lo pobre</h3>
-<div class="precio">$28.000</div>
-<button onclick="agregar('Sándwich de desmechado de vacío + papas a lo pobre',28000)">
-AGREGAR AL PEDIDO
-</button>
-</div>
-
-<div class="producto">
-<h3>Milanesa + fritas/puré</h3>
-<div class="precio">$19.000</div>
-<button onclick="agregar('Milanesa + fritas/puré',19000)">
-AGREGAR AL PEDIDO
-</button>
-</div>
-
-<div class="producto">
-<h3>Milanesa napolitana + fritas/puré</h3>
-<div class="precio">$20.000</div>
-<button onclick="agregar('Milanesa napolitana + fritas/puré',20000)">
-AGREGAR AL PEDIDO
-</button>
-</div>
-
-
-<!-- ================= PIZZAS ================= -->
-
-<h2 class="categoria" id="pizzas">🍕 PIZZAS</h2>
-
-<div class="producto">
-<h3>Pizza especial de morrón</h3>
-<div class="precio">$22.000</div>
-<button onclick="agregar('Pizza especial de morrón',22000)">
-AGREGAR AL PEDIDO
-</button>
-</div>
-
-<div class="producto">
-<h3>Pizza muzzarella</h3>
-<div class="precio">$17.000</div>
-<button onclick="agregar('Pizza muzzarella',17000)">
-AGREGAR AL PEDIDO
-</button>
-</div>
-
-<div class="producto">
-<h3>Pizza especial de huevo</h3>
-<div class="precio">$19.000</div>
-<button onclick="agregar('Pizza especial de huevo',19000)">
-AGREGAR AL PEDIDO
-</button>
-</div>
-
-<div class="producto">
-<h3>Pizza paisana</h3>
-<div class="precio">$24.000</div>
-<button onclick="agregar('Pizza paisana',24000)">
-AGREGAR AL PEDIDO
-</button>
-</div>
-
-<div class="producto">
-<h3>Pizza cantimpalo</h3>
-<div class="precio">$20.000</div>
-<button onclick="agregar('Pizza cantimpalo',20000)">
-AGREGAR AL PEDIDO
-</button>
-</div>
-
-<div class="producto">
-<h3>Pizza fugazzeta</h3>
-<div class="precio">$15.000</div>
-<button onclick="agregar('Pizza fugazzeta',15000)">
-AGREGAR AL PEDIDO
-</button>
-</div>
-
-<div class="producto">
-<h3>Mia Pizza</h3>
-<div class="descripcion">
-Tomate en cubitos, cebollita de verdeo, huevo rallado, morrón y JyQ.
-</div>
-<div class="precio">$18.000</div>
-<button onclick="agregar('Mia Pizza',18000)">
-AGREGAR AL PEDIDO
-</button>
-</div>
-
-<div class="producto">
-<h3>Pizza infantil</h3>
-<div class="descripcion">
-JyQ, papas fritas y salchichas.
-</div>
-<div class="precio">$18.000</div>
-<button onclick="agregar('Pizza infantil',18000)">
-AGREGAR AL PEDIDO
-</button>
-</div>
-
-<div class="producto">
-<h3>Pizza napolitana</h3>
-<div class="precio">$22.000</div>
-<button onclick="agregar('Pizza napolitana',22000)">
-AGREGAR AL PEDIDO
-</button>
-</div>
+      <div class="producto">
+        <h3>Especial + fritas</h3>
+        <div class="precio">$17.000</div>
+        <button class="btn" onclick="agregar('Hamburguesa especial + fritas',17000)">Agregar</button>
+      </div>
 
-<div class="producto">
-<h3>Pizza 4 quesos</h3>
-<div class="precio">$28.000</div>
-<button onclick="agregar('Pizza 4 quesos',28000)">
-AGREGAR AL PEDIDO
-</button>
-</div>
-
-
-<!-- ================= PIZZAS RECTANGULARES ================= -->
-
-<h2 class="categoria">
-🍕 PIZZAS RECTANGULARES 50 × 25 CM
-</h2>
+      <div class="producto">
+        <h3>Gratinada + fritas</h3>
+        <div class="precio">$18.000</div>
+        <button class="btn" onclick="agregar('Hamburguesa gratinada + fritas',18000)">Agregar</button>
+      </div>
 
-<div class="producto">
-<h3>Muzzarella / Mia Pizza / Paisana</h3>
-<div class="precio">$36.000</div>
-<button onclick="agregar('Pizza rectangular 50x25 - Muzzarella/Mia Pizza/Paisana',36000)">
-AGREGAR AL PEDIDO
-</button>
-</div>
+      <div class="producto">
+        <h3>Gratinada Roque Fort + fritas</h3>
+        <div class="precio">$19.000</div>
+        <button class="btn" onclick="agregar('Hamburguesa gratinada Roque Fort + fritas',19000)">Agregar</button>
+      </div>
 
-<div class="producto">
-<h3>Napolitana / Rúcula / Salchipapas</h3>
-<div class="precio">$42.000</div>
-<button onclick="agregar('Pizza rectangular 50x25 - Napolitana/Rúcula/Salchipapas',42000)">
-AGREGAR AL PEDIDO
-</button>
-</div>
+      <div class="producto">
+        <h3>Doble carne + fritas</h3>
+        <div class="precio">$20.000</div>
+        <button class="btn" onclick="agregar('Hamburguesa doble carne + fritas',20000)">Agregar</button>
+      </div>
+
+      <div class="producto">
+        <h3>Hamburguesón + bandeja chica de papas</h3>
+        <div class="precio">$30.000</div>
+        <button class="btn" onclick="agregar('Hamburguesón + bandeja chica de papas',30000)">Agregar</button>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- SANDWICH -->
+
+  <section class="categoria" id="sandwich">
+
+    <h2>🥪 SÁNDWICH</h2>
+
+    <div class="productos">
+
+      <div class="producto">
+        <h3>Milanesa completo + fritas</h3>
+        <p>Para 2 personas</p>
+        <div class="precio">$25.000</div>
+        <button class="btn" onclick="agregar('Milanesa completo + fritas',25000)">Agregar</button>
+      </div>
+
+      <div class="producto">
+        <h3>Bife a la criolla simple + fritas</h3>
+        <div class="precio">$22.000</div>
+        <button class="btn" onclick="agregar('Bife a la criolla simple + fritas',22000)">Agregar</button>
+      </div>
+
+      <div class="producto">
+        <h3>Bife a la criolla completo + fritas</h3>
+        <div class="precio">$25.000</div>
+        <button class="btn" onclick="agregar('Bife a la criolla completo + fritas',25000)">Agregar</button>
+      </div>
+
+      <div class="producto">
+        <h3>Desmechado de vacío + papas a lo pobre</h3>
+        <div class="precio">$28.000</div>
+        <button class="btn" onclick="agregar('Desmechado de vacío + papas a lo pobre',28000)">Agregar</button>
+      </div>
+
+      <div class="producto">
+        <h3>Milanesa + fritas/puré</h3>
+        <div class="precio">$19.000</div>
+        <button class="btn" onclick="agregar('Milanesa + fritas/puré',19000)">Agregar</button>
+      </div>
+
+      <div class="producto">
+        <h3>Milanesa napolitana + fritas/puré</h3>
+        <div class="precio">$20.000</div>
+        <button class="btn" onclick="agregar('Milanesa napolitana + fritas/puré',20000)">Agregar</button>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- PIZZAS -->
+
+  <section class="categoria" id="pizzas">
+
+    <h2>🍕 PIZZAS</h2>
+
+    <div class="productos">
+
+      <div class="producto">
+        <h3>Especial morrón</h3>
+        <div class="precio">$22.000</div>
+        <button class="btn" onclick="agregar('Pizza especial morrón',22000)">Agregar</button>
+      </div>
+
+      <div class="producto">
+        <h3>Muzzarella</h3>
+        <div class="precio">$17.000</div>
+        <button class="btn" onclick="agregar('Pizza muzzarella',17000)">Agregar</button>
+      </div>
+
+      <div class="producto">
+        <h3>Especial huevo</h3>
+        <div class="precio">$19.000</div>
+        <button class="btn" onclick="agregar('Pizza especial huevo',19000)">Agregar</button>
+      </div>
+
+      <div class="producto">
+        <h3>Paisana</h3>
+        <div class="precio">$24.000</div>
+        <button class="btn" onclick="agregar('Pizza paisana',24000)">Agregar</button>
+      </div>
+
+      <div class="producto">
+        <h3>Cantimpalo</h3>
+        <div class="precio">$20.000</div>
+        <button class="btn" onclick="agregar('Pizza cantimpalo',20000)">Agregar</button>
+      </div>
+
+      <div class="producto">
+        <h3>Fugazzeta</h3>
+        <div class="precio">$15.000</div>
+        <button class="btn" onclick="agregar('Pizza fugazzeta',15000)">Agregar</button>
+      </div>
+
+      <div class="producto">
+        <h3>Mia Pizza</h3>
+        <p>Tomate en cubitos, verdeo, huevo rallado, morrón y JyQ</p>
+        <div class="precio">$18.000</div>
+        <button class="btn" onclick="agregar('Pizza Mia Pizza',18000)">Agregar</button>
+      </div>
+
+      <div class="producto">
+        <h3>Pizza infantil</h3>
+        <p>JyQ, papas fritas y salchichas</p>
+        <div class="precio">$18.000</div>
+        <button class="btn" onclick="agregar('Pizza infantil',18000)">Agregar</button>
+      </div>
+
+      <div class="producto">
+        <h3>Napolitana</h3>
+        <div class="precio">$22.000</div>
+        <button class="btn" onclick="agregar('Pizza napolitana',22000)">Agregar</button>
+      </div>
+
+      <div class="producto">
+        <h3>4 quesos</h3>
+        <div class="precio">$28.000</div>
+        <button class="btn" onclick="agregar('Pizza 4 quesos',28000)">Agregar</button>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- PIZZAS RECTANGULARES -->
+
+  <section class="categoria" id="pizzas-rectangulares">
+
+    <h2>🍕 PIZZAS RECTANGULARES 50 × 25 CM</h2>
+
+    <div class="productos">
+
+      <div class="producto">
+        <h3>Muzzarella</h3>
+        <div class="precio">$36.000</div>
+        <button class="btn" onclick="agregar('Pizza rectangular muzzarella 50x25',36000)">Agregar</button>
+      </div>
+
+      <div class="producto">
+        <h3>Mia Pizza</h3>
+        <div class="precio">$36.000</div>
+        <button class="btn" onclick="agregar('Pizza rectangular Mia Pizza 50x25',36000)">Agregar</button>
+      </div>
+
+      <div class="producto">
+        <h3>Paisana</h3>
+        <div class="precio">$36.000</div>
+        <button class="btn" onclick="agregar('Pizza rectangular paisana 50x25',36000)">Agregar</button>
+      </div>
+
+      <div class="producto">
+        <h3>Napolitana</h3>
+        <div class="precio">$42.000</div>
+        <button class="btn" onclick="agregar('Pizza rectangular napolitana 50x25',42000)">Agregar</button>
+      </div>
+
+      <div class="producto">
+        <h3>Rúcula</h3>
+        <div class="precio">$42.000</div>
+        <button class="btn" onclick="agregar('Pizza rectangular rúcula 50x25',42000)">Agregar</button>
+      </div>
+
+      <div class="producto">
+        <h3>Salchipapas</h3>
+        <div class="precio">$42.000</div>
+        <button class="btn" onclick="agregar('Pizza rectangular salchipapas 50x25',42000)">Agregar</button>
+      </div>
+
+      <div class="producto">
+        <h3>Hamburpizza</h3>
+        <div class="precio">$33.000</div>
+        <button class="btn" onclick="agregar('Hamburpizza rectangular 50x25',33000)">Agregar</button>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- PANCHOS -->
+
+  <section class="categoria" id="panchos">
+
+    <h2>🌭 PANCHOS</h2>
 
-<div class="producto">
-<h3>Hamburpizza</h3>
-<div class="precio">$33.000</div>
-<button onclick="agregar('Hamburpizza',33000)">
-AGREGAR AL PEDIDO
-</button>
-</div>
+    <div class="productos">
 
+      <div class="producto">
+        <h3>Salchifull XL</h3>
+        <div class="precio">$7.500</div>
+        <button class="btn" onclick="agregar('Salchifull XL',7500)">Agregar</button>
+      </div>
 
-<!-- ================= PANCHOS ================= -->
+      <div class="producto">
+        <h3>2 Salchifull XL</h3>
+        <div class="precio">$13.000</div>
+        <button class="btn" onclick="agregar('2 Salchifull XL',13000)">Agregar</button>
+      </div>
 
-<h2 class="categoria" id="panchos">🌭 PANCHOS</h2>
+      <div class="producto">
+        <h3>2 Salchifull XL + bandeja chica papas</h3>
+        <div class="precio">$17.000</div>
+        <button class="btn" onclick="agregar('2 Salchifull XL + bandeja chica papas',17000)">Agregar</button>
+      </div>
 
-<div class="producto">
-<h3>Salchifull XL</h3>
-<div class="precio">$7.500</div>
-<button onclick="agregar('Salchifull XL',7500)">
-AGREGAR AL PEDIDO
-</button>
-</div>
+      <div class="producto">
+        <h3>Salchifull simple</h3>
+        <div class="precio">$4.500</div>
+        <button class="btn" onclick="agregar('Salchifull simple',4500)">Agregar</button>
+      </div>
 
-<div class="producto">
-<h3>2 Salchifull XL</h3>
-<div class="precio">$13.000</div>
-<button onclick="agregar('2 Salchifull XL',13000)">
-AGREGAR AL PEDIDO
-</button>
-</div>
+      <div class="producto">
+        <h3>2 Salchifull simple</h3>
+        <div class="precio">$7.000</div>
+        <button class="btn" onclick="agregar('2 Salchifull simple',7000)">Agregar</button>
+      </div>
 
-<div class="producto">
-<h3>2 Salchifull XL + bandeja chica de papas</h3>
-<div class="precio">$17.000</div>
-<button onclick="agregar('2 Salchifull XL + bandeja chica de papas',17000)">
-AGREGAR AL PEDIDO
-</button>
-</div>
+      <div class="producto">
+        <h3>2 Salchifull simple + bandeja chica papas</h3>
+        <div class="precio">$11.000</div>
+        <button class="btn" onclick="agregar('2 Salchifull simple + bandeja chica papas',11000)">Agregar</button>
+      </div>
 
-<div class="producto">
-<h3>Salchifull simple</h3>
-<div class="precio">$4.500</div>
-<button onclick="agregar('Salchifull simple',4500)">
-AGREGAR AL PEDIDO
-</button>
-</div>
+      <div class="producto">
+        <h3>Salchifull a la pizza simple</h3>
+        <div class="precio">$5.500</div>
+        <button class="btn" onclick="agregar('Salchifull a la pizza simple',5500)">Agregar</button>
+      </div>
 
-<div class="producto">
-<h3>2 Salchifull simple</h3>
-<div class="precio">$7.000</div>
-<button onclick="agregar('2 Salchifull simple',7000)">
-AGREGAR AL PEDIDO
-</button>
-</div>
+      <div class="producto">
+        <h3>2 Salchifull a la pizza simple</h3>
+        <div class="precio">$9.000</div>
+        <button class="btn" onclick="agregar('2 Salchifull a la pizza simple',9000)">Agregar</button>
+      </div>
 
-<div class="producto">
-<h3>2 Salchifull simple + bandeja chica de papas</h3>
-<div class="precio">$11.000</div>
-<button onclick="agregar('2 Salchifull simple + bandeja chica de papas',11000)">
-AGREGAR AL PEDIDO
-</button>
-</div>
+      <div class="producto">
+        <h3>2 Salchifull a la pizza simple + bandeja chica papas</h3>
+        <div class="precio">$17.000</div>
+        <button class="btn" onclick="agregar('2 Salchifull a la pizza simple + bandeja chica papas',17000)">Agregar</button>
+      </div>
 
-<div class="producto">
-<h3>Salchifull a la pizza simple</h3>
-<div class="precio">$5.500</div>
-<button onclick="agregar('Salchifull a la pizza simple',5500)">
-AGREGAR AL PEDIDO
-</button>
-</div>
+    </div>
+  </section>
 
-<div class="producto">
-<h3>2 Salchifull a la pizza simple</h3>
-<div class="precio">$9.000</div>
-<button onclick="agregar('2 Salchifull a la pizza simple',9000)">
-AGREGAR AL PEDIDO
-</button>
-</div>
 
-<div class="producto">
-<h3>2 Salchifull a la pizza simple + bandeja chica de papas</h3>
-<div class="precio">$17.000</div>
-<button onclick="agregar('2 Salchifull a la pizza simple + bandeja chica de papas',17000)">
-AGREGAR AL PEDIDO
-</button>
-</div>
+  <!-- CARRITO -->
 
+  <section id="carrito">
 
-<!-- ================= CARRITO ================= -->
+    <h2>🛒 Tu pedido</h2>
 
-<div class="carrito" id="carrito">
+    <div id="listaCarrito">
+      <div class="vacio">Todavía no agregaste productos.</div>
+    </div>
 
-<h2>🛒 TU PEDIDO</h2>
+    <div class="resumen">
 
-<div id="lista-carrito">
-Todavía no agregaste productos.
-</div>
+      <div class="resumen-linea">
+        <span>Subtotal:</span>
+        <strong id="subtotal">$0</strong>
+      </div>
 
-<div class="total">
-TOTAL: $<span id="total">0</span>
-</div>
+      <div class="resumen-linea">
+        <span>Delivery:</span>
+        <strong id="recargo">A seleccionar</strong>
+      </div>
 
+      <div class="resumen-linea total">
+        <span>Total:</span>
+        <strong id="total">$0</strong>
+      </div>
 
-<div class="formulario">
+    </div>
 
-<h3>📋 Datos del pedido</h3>
 
-<input
-type="text"
-id="nombre"
-placeholder="Tu nombre"
->
+    <!-- FORMULARIO -->
 
-<select id="tipoPedido">
+    <div class="formulario">
 
-<option value="">
-¿Cómo querés recibir tu pedido?
-</option>
+      <h3>📋 Datos del pedido</h3>
 
-<option value="Retiro por el carrito">
-Retiro por el carrito
-</option>
+      <label for="nombre">Nombre</label>
+      <input type="text" id="nombre" placeholder="Tu nombre">
 
-<option value="Delivery">
-Delivery
-</option>
+      <label for="tipoPedido">¿Cómo querés recibir tu pedido?</label>
 
-</select>
+      <select id="tipoPedido">
+        <option value="">Seleccionar</option>
+        <option value="Retiro">Retiro por el carrito</option>
+        <option value="Delivery">Delivery</option>
+      </select>
 
 
-<!-- ================= ZONA DELIVERY ================= -->
+      <div id="zonaBox">
 
-<div
-id="zonaDeliveryContainer"
-class="delivery-box"
-style="display:none;"
->
+        <label for="zonaDelivery">Zona de delivery</label>
 
-<strong>🚚 Seleccioná tu zona</strong>
+        <select id="zonaDelivery">
 
-<select id="zonaDelivery">
+          <option value="">Seleccionar zona</option>
 
-<option value="">
-Seleccioná tu zona
-</option>
+          <option value="2500">
+            Próspero Palazzo — +$2.500
+          </option>
 
-<option value="2000">
-📍 Prospero Palazzo — +$2.500
-</option>
+          <option value="2500">
+            Ciudadela — +$2.500
+          </option>
 
-<option value="2000">
-📍 Ciudadela — +$2.500
-</option>
+          <option value="3500">
+            Km 8 / Estándar — +$3.500
+          </option>
 
-<option value="3000">
-📍 Km 8 / Estándar — +$3.500
-</option>
+          <option value="4500">
+            Castelli — +$4.500
+          </option>
 
-<option value="4000">
-📍 Castelli — +$4.500
-</option>
+          <option value="consultar">
+            Otra zona — Consultar
+          </option>
 
-<option value="consultar">
-🏠 Otra zona — Consultar
-</option>
+        </select>
 
-</select>
+      </div>
 
-</div>
 
+      <div id="direccionBox">
 
-<input
-type="text"
-id="direccion"
-placeholder="Dirección (solo si es delivery)"
->
+        <label for="direccion">Dirección</label>
 
+        <input
+          type="text"
+          id="direccion"
+          placeholder="Calle, número, barrio..."
+        >
 
-<select id="pago">
+      </div>
 
-<option value="">
-Forma de pago
-</option>
 
-<option value="Efectivo">
-Efectivo
-</option>
+      <label for="pago">Medio de pago</label>
 
-<option value="Mercado Pago">
-Mercado Pago
-</option>
+      <select id="pago">
 
-</select>
+        <option value="">Seleccionar</option>
+        <option value="Efectivo">Efectivo</option>
+        <option value="Mercado Pago">Mercado Pago</option>
 
+      </select>
 
-<textarea
-id="observaciones"
-placeholder="Observaciones del pedido (opcional)"
-></textarea>
 
-</div>
+      <label for="observaciones">Observaciones</label>
 
+      <textarea
+        id="observaciones"
+        placeholder="Ej: sin cebolla, agregar aderezos, etc."
+      ></textarea>
 
-<button
-class="boton-whatsapp"
-onclick="enviarWhatsApp()"
->
-🟢 CONFIRMAR PEDIDO POR WHATSAPP
-</button>
 
+      <button class="btn-whatsapp" onclick="enviarWhatsApp()">
+        📲 ENVIAR PEDIDO POR WHATSAPP
+      </button>
 
-<button
-class="vaciar"
-onclick="vaciarCarrito()"
->
-Vaciar pedido
-</button>
+    </div>
 
-</div>
+  </section>
 
 </div>
-
 
-<!-- ================= CARRITO FLOTANTE ================= -->
 
-<div
-id="carritoFlotante"
-class="carrito-flotante"
-onclick="irAlCarrito()"
->
+<!-- CARRITO FLOTANTE -->
 
-<div>
-🛒 <strong id="cantidadFlotante">0 productos</strong>
-</div>
+<div class="carrito-flotante" onclick="irAlCarrito()">
 
-<div class="carrito-total">
-$<span id="totalFlotante">0</span>
-</div>
+  <div>
+    🛒 Ver pedido
+    <small id="cantidadFlotante">0 productos</small>
+  </div>
 
-<div class="ver-pedido">
-VER PEDIDO →
-</div>
+  <div id="totalFlotante">$0</div>
 
 </div>
-
-
-<!-- ================= FOOTER ================= -->
-
-<footer>
-
-<p>🍔 <strong>El Carrito de Fran</strong></p>
-
-<p>Comodoro Rivadavia</p>
-
-<p>🕐 20:00 a 23:00</p>
-
-</footer>
 
 
 <script>
@@ -1141,67 +884,56 @@ VER PEDIDO →
 let carrito = [];
 
 
-/* ================= AGREGAR ================= */
+/* AGREGAR PRODUCTO */
 
 function agregar(nombre, precio) {
 
-  let productoExistente = carrito.find(
-    producto => producto.nombre === nombre
-  );
+  carrito.push({
+    nombre: nombre,
+    precio: precio
+  });
 
-  if (productoExistente) {
+  actualizarCarrito();
 
-    productoExistente.cantidad++;
+  document.getElementById("carrito").scrollIntoView({
+    behavior: "smooth"
+  });
+}
 
-  } else {
 
-    carrito.push({
-      nombre: nombre,
-      precio: precio,
-      cantidad: 1
-    });
+/* ELIMINAR PRODUCTO */
 
-  }
+function eliminarProducto(index) {
+
+  carrito.splice(index, 1);
 
   actualizarCarrito();
 }
 
 
-/* ================= TOTAL PRODUCTOS ================= */
+/* FORMATEAR PESOS */
 
-function calcularSubtotal() {
+function formatoPesos(numero) {
 
-  let total = 0;
-
-  carrito.forEach(producto => {
-
-    total += producto.precio * producto.cantidad;
-
-  });
-
-  return total;
+  return "$" + numero.toLocaleString("es-AR");
 
 }
 
 
-/* ================= RECARGO DELIVERY ================= */
+/* OBTENER RECARGO */
 
 function obtenerRecargoDelivery() {
 
-  const tipoPedido =
-    document.getElementById("tipoPedido").value;
+  const tipo = document.getElementById("tipoPedido").value;
 
-  const zona =
-    document.getElementById("zonaDelivery").value;
-
-  if (
-    tipoPedido !== "Delivery" ||
-    zona === "" ||
-    zona === "consultar"
-  ) {
-
+  if (tipo !== "Delivery") {
     return 0;
+  }
 
+  const zona = document.getElementById("zonaDelivery").value;
+
+  if (zona === "" || zona === "consultar") {
+    return 0;
   }
 
   return Number(zona);
@@ -1209,254 +941,176 @@ function obtenerRecargoDelivery() {
 }
 
 
-/* ================= ACTUALIZAR CARRITO ================= */
+/* ACTUALIZAR CARRITO */
 
 function actualizarCarrito() {
 
-  const lista =
-    document.getElementById("lista-carrito");
+  const lista = document.getElementById("listaCarrito");
 
-  const totalElemento =
-    document.getElementById("total");
+  const subtotalElemento = document.getElementById("subtotal");
+  const recargoElemento = document.getElementById("recargo");
+  const totalElemento = document.getElementById("total");
+  const totalFlotante = document.getElementById("totalFlotante");
+  const cantidadFlotante = document.getElementById("cantidadFlotante");
 
-  const carritoFlotante =
-    document.getElementById("carritoFlotante");
-
-  const cantidadFlotante =
-    document.getElementById("cantidadFlotante");
-
-  const totalFlotante =
-    document.getElementById("totalFlotante");
-
+  lista.innerHTML = "";
 
   if (carrito.length === 0) {
 
     lista.innerHTML =
-      "Todavía no agregaste productos.";
-
-    totalElemento.innerText = "0";
-
-    carritoFlotante.classList.remove("visible");
-
-    return;
-
-  }
-
-
-  let html = "";
-
-  carrito.forEach((producto, indice) => {
-
-    const subtotal =
-      producto.precio * producto.cantidad;
-
-    html += `
-
-      <div class="item-carrito">
-
-        <div>
-
-          <strong>
-          ${producto.nombre}
-          </strong>
-
-          <br>
-
-          $${producto.precio.toLocaleString("es-AR")}
-          × ${producto.cantidad}
-
-        </div>
-
-        <div class="controles">
-
-          <button onclick="disminuir(${indice})">
-          −
-          </button>
-
-          <strong>
-          ${producto.cantidad}
-          </strong>
-
-          <button onclick="aumentar(${indice})">
-          +
-          </button>
-
-          <button
-          class="eliminar"
-          onclick="eliminar(${indice})">
-          ×
-          </button>
-
-        </div>
-
-      </div>
-
-    `;
-
-  });
-
-
-  lista.innerHTML = html;
-
-
-  const subtotal =
-    calcularSubtotal();
-
-  const recargo =
-    obtenerRecargoDelivery();
-
-  const totalFinal =
-    subtotal + recargo;
-
-
-  totalElemento.innerText =
-    totalFinal.toLocaleString("es-AR");
-
-
-  let cantidadTotal = 0;
-
-  carrito.forEach(producto => {
-
-    cantidadTotal += producto.cantidad;
-
-  });
-
-
-  cantidadFlotante.innerText =
-    cantidadTotal === 1
-      ? "1 producto"
-      : cantidadTotal + " productos";
-
-
-  totalFlotante.innerText =
-    totalFinal.toLocaleString("es-AR");
-
-
-  carritoFlotante.classList.add("visible");
-
-}
-
-
-/* ================= AUMENTAR ================= */
-
-function aumentar(indice) {
-
-  carrito[indice].cantidad++;
-
-  actualizarCarrito();
-
-}
-
-
-/* ================= DISMINUIR ================= */
-
-function disminuir(indice) {
-
-  if (carrito[indice].cantidad > 1) {
-
-    carrito[indice].cantidad--;
+      '<div class="vacio">Todavía no agregaste productos.</div>';
 
   } else {
 
-    carrito.splice(indice, 1);
+    carrito.forEach((producto, index) => {
 
-  }
+      const item = document.createElement("div");
 
-  actualizarCarrito();
+      item.className = "item-carrito";
 
-}
+      item.innerHTML = `
 
+        <div class="item-info">
 
-/* ================= ELIMINAR ================= */
+          <div class="item-nombre">
+            ${producto.nombre}
+          </div>
 
-function eliminar(indice) {
+          <div class="item-precio">
+            ${formatoPesos(producto.precio)}
+          </div>
 
-  carrito.splice(indice, 1);
+        </div>
 
-  actualizarCarrito();
+        <button
+          class="btn-eliminar"
+          onclick="eliminarProducto(${index})"
+        >
+          ✕
+        </button>
 
-}
+      `;
 
+      lista.appendChild(item);
 
-/* ================= VACIAR ================= */
-
-function vaciarCarrito() {
-
-  carrito = [];
-
-  actualizarCarrito();
-
-}
-
-
-/* ================= IR AL CARRITO ================= */
-
-function irAlCarrito() {
-
-  const carritoElemento =
-    document.querySelector(".carrito");
-
-  if (carritoElemento) {
-
-    carritoElemento.scrollIntoView({
-      behavior: "smooth",
-      block: "start"
     });
 
   }
 
-}
+
+  let subtotal = 0;
+
+  carrito.forEach(producto => {
+    subtotal += producto.precio;
+  });
 
 
-/* ================= CAMBIAR TIPO PEDIDO ================= */
+  const tipo = document.getElementById("tipoPedido").value;
 
-document
-.getElementById("tipoPedido")
-.addEventListener("change", function() {
+  const zona = document.getElementById("zonaDelivery").value;
 
-  const zonaContainer =
-    document.getElementById("zonaDeliveryContainer");
+  const recargo = obtenerRecargoDelivery();
 
-  const zona =
-    document.getElementById("zonaDelivery");
+  const zonaConsultar =
+    tipo === "Delivery" && zona === "consultar";
 
-  if (this.value === "Delivery") {
 
-    zonaContainer.style.display = "block";
+  subtotalElemento.textContent =
+    formatoPesos(subtotal);
+
+
+  if (tipo !== "Delivery") {
+
+    recargoElemento.textContent = "$0";
+
+  } else if (zonaConsultar) {
+
+    recargoElemento.textContent = "A consultar";
+    recargoElemento.className = "consulta-delivery";
+
+  } else if (zona === "") {
+
+    recargoElemento.textContent = "Seleccionar zona";
+    recargoElemento.className = "";
 
   } else {
 
-    zonaContainer.style.display = "none";
+    recargoElemento.textContent =
+      formatoPesos(recargo);
 
-    zona.value = "";
+    recargoElemento.className = "";
 
   }
 
-  actualizarCarrito();
 
-});
+  const total = subtotal + recargo;
 
+  totalElemento.textContent =
+    formatoPesos(total);
 
-/* ================= CAMBIAR ZONA ================= */
-
-document
-.getElementById("zonaDelivery")
-.addEventListener("change", function() {
-
-  actualizarCarrito();
-
-});
+  totalFlotante.textContent =
+    formatoPesos(total);
 
 
-/* ================= WHATSAPP ================= */
+  cantidadFlotante.textContent =
+    carrito.length === 1
+      ? "1 producto"
+      : carrito.length + " productos";
+
+}
+
+
+/* CAMBIAR TIPO DE PEDIDO */
+
+document.getElementById("tipoPedido").addEventListener(
+  "change",
+  function() {
+
+    const delivery =
+      this.value === "Delivery";
+
+    document.getElementById("zonaBox").style.display =
+      delivery ? "block" : "none";
+
+    document.getElementById("direccionBox").style.display =
+      delivery ? "block" : "none";
+
+    actualizarCarrito();
+
+  }
+);
+
+
+/* CAMBIAR ZONA */
+
+document.getElementById("zonaDelivery").addEventListener(
+  "change",
+  function() {
+
+    actualizarCarrito();
+
+  }
+);
+
+
+/* IR AL CARRITO */
+
+function irAlCarrito() {
+
+  document.getElementById("carrito").scrollIntoView({
+    behavior: "smooth"
+  });
+
+}
+
+
+/* ENVIAR WHATSAPP */
 
 function enviarWhatsApp() {
 
   if (carrito.length === 0) {
 
-    alert(
-      "Primero agregá algún producto al pedido."
-    );
+    alert("Agregá al menos un producto al pedido.");
 
     return;
 
@@ -1466,8 +1120,17 @@ function enviarWhatsApp() {
   const nombre =
     document.getElementById("nombre").value.trim();
 
-  const tipoPedido =
+  const tipo =
     document.getElementById("tipoPedido").value;
+
+  const zona =
+    document.getElementById("zonaDelivery").value;
+
+  const zonaTexto =
+    document.getElementById("zonaDelivery")
+    .options[
+      document.getElementById("zonaDelivery").selectedIndex
+    ]?.text || "";
 
   const direccion =
     document.getElementById("direccion").value.trim();
@@ -1478,54 +1141,41 @@ function enviarWhatsApp() {
   const observaciones =
     document.getElementById("observaciones").value.trim();
 
-  const zonaSelect =
-    document.getElementById("zonaDelivery");
-
 
   if (nombre === "") {
 
-    alert(
-      "Por favor ingresá tu nombre."
-    );
+    alert("Ingresá tu nombre.");
+
+    document.getElementById("nombre").focus();
 
     return;
 
   }
 
 
-  if (tipoPedido === "") {
+  if (tipo === "") {
 
-    alert(
-      "Seleccioná retiro o delivery."
-    );
+    alert("Seleccioná si retirás o querés delivery.");
 
     return;
 
   }
 
 
-  if (
-    tipoPedido === "Delivery" &&
-    zonaSelect.value === ""
-  ) {
+  if (tipo === "Delivery" && zona === "") {
 
-    alert(
-      "Seleccioná la zona de delivery."
-    );
+    alert("Seleccioná una zona de delivery.");
 
     return;
 
   }
 
 
-  if (
-    tipoPedido === "Delivery" &&
-    direccion === ""
-  ) {
+  if (tipo === "Delivery" && direccion === "") {
 
-    alert(
-      "Ingresá la dirección para el delivery."
-    );
+    alert("Ingresá la dirección de entrega.");
+
+    document.getElementById("direccion").focus();
 
     return;
 
@@ -1534,158 +1184,127 @@ function enviarWhatsApp() {
 
   if (pago === "") {
 
-    alert(
-      "Seleccioná la forma de pago."
-    );
+    alert("Seleccioná el medio de pago.");
 
     return;
 
   }
 
 
-  let mensaje =
-    "🍔 *NUEVO PEDIDO - EL CARRITO DE FRAN*%0A%0A";
-
-
-  mensaje +=
-    "👤 *Cliente:* " +
-    encodeURIComponent(nombre) +
-    "%0A";
-
-
-  mensaje +=
-    "📦 *Pedido:* " +
-    encodeURIComponent(tipoPedido) +
-    "%0A";
-
-
-  if (tipoPedido === "Delivery") {
-
-    mensaje +=
-      "📍 *Dirección:* " +
-      encodeURIComponent(direccion) +
-      "%0A";
-
-
-    const textoZona =
-      zonaSelect.options[
-        zonaSelect.selectedIndex
-      ].text;
-
-
-    mensaje +=
-      "🚚 *Zona:* " +
-      encodeURIComponent(textoZona) +
-      "%0A";
-
-  }
-
-
-  mensaje +=
-    "💳 *Pago:* " +
-    encodeURIComponent(pago) +
-    "%0A%0A";
-
-
-  mensaje +=
-    "🛒 *PRODUCTOS*%0A";
-
-
   let subtotal = 0;
 
+  let mensaje = "";
 
-  carrito.forEach(producto => {
+  mensaje += "🍔 *EL CARRITO DE FRAN*";
+  mensaje += "\n";
+  mensaje += "━━━━━━━━━━━━━━━━";
+  mensaje += "\n\n";
 
-    const importe =
-      producto.precio *
-      producto.cantidad;
+  mensaje += "👤 *Nombre:* " + nombre;
+  mensaje += "\n";
+
+  mensaje += "📦 *Pedido:* " + tipo;
+  mensaje += "\n\n";
+
+  mensaje += "🛒 *PRODUCTOS*";
+  mensaje += "\n";
 
 
-    subtotal += importe;
+  carrito.forEach((producto) => {
 
+    subtotal += producto.precio;
 
     mensaje +=
       "• " +
-      encodeURIComponent(producto.nombre) +
-      " × " +
-      producto.cantidad +
-      " — $" +
-      importe.toLocaleString("es-AR") +
-      "%0A";
+      producto.nombre +
+      " — " +
+      formatoPesos(producto.precio) +
+      "\n";
 
   });
 
 
-  const recargo =
-    obtenerRecargoDelivery();
+  const recargo = obtenerRecargoDelivery();
+
+  mensaje += "\n";
+  mensaje += "━━━━━━━━━━━━━━━━";
+  mensaje += "\n";
+
+  mensaje +=
+    "💰 *Subtotal:* " +
+    formatoPesos(subtotal) +
+    "\n";
 
 
-  if (tipoPedido === "Delivery") {
+  if (tipo === "Delivery") {
 
-    mensaje += "%0A🚚 *DELIVERY*%0A";
+    mensaje +=
+      "🚗 *Delivery:* " +
+      (zona === "consultar"
+        ? "A consultar"
+        : formatoPesos(recargo)) +
+      "\n";
 
+    mensaje +=
+      "📍 *Zona:* " +
+      zonaTexto +
+      "\n";
 
-    if (zonaSelect.value === "consultar") {
+    mensaje +=
+      "🏠 *Dirección:* " +
+      direccion +
+      "\n";
 
-      mensaje +=
-        "💵 *Recargo:* A consultar%0A";
+  } else {
 
-    } else {
-
-      mensaje +=
-        "💵 *Recargo delivery:* $" +
-        recargo.toLocaleString("es-AR") +
-        "%0A";
-
-    }
+    mensaje +=
+      "🚗 *Delivery:* $0\n";
 
   }
 
 
-  const totalFinal =
-    subtotal + recargo;
-
+  const total = subtotal + recargo;
 
   mensaje +=
-    "%0A💰 *TOTAL: $" +
-    totalFinal.toLocaleString("es-AR") +
-    "*";
+    "💵 *Total:* " +
+    formatoPesos(total) +
+    "\n";
+
+  mensaje +=
+    "💳 *Pago:* " +
+    pago +
+    "\n";
 
 
   if (observaciones !== "") {
 
     mensaje +=
-      "%0A%0A📝 *Observaciones:* " +
-      encodeURIComponent(observaciones);
+      "\n📝 *Observaciones:*\n" +
+      observaciones +
+      "\n";
 
   }
 
 
-  /*
-   * NÚMERO DE WHATSAPP
-   * El Carrito de Fran
-   */
+  mensaje += "\n";
+  mensaje += "¡Gracias! ❤️";
 
-  const numero =
-    "5492975414824";
 
+  const telefono = "5492975414824";
 
   const url =
     "https://wa.me/" +
-    numero +
+    telefono +
     "?text=" +
-    mensaje;
+    encodeURIComponent(mensaje);
 
 
-  window.open(
-    url,
-    "_blank"
-  );
+  window.open(url, "_blank");
 
 }
 
 
-/* ================= INICIO ================= */
+/* INICIAR */
 
 actualizarCarrito();
 
@@ -1693,4 +1312,3 @@ actualizarCarrito();
 
 </body>
 </html>
-```
