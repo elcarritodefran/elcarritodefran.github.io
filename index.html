@@ -314,6 +314,23 @@ header p {
   }
 
 }
+.btn-vaciar {
+  width: 100%;
+  margin-top: 15px;
+  padding: 11px;
+  border: none;
+  border-radius: 10px;
+  background: #e57373;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-vaciar:hover {
+  background: #d9534f;
+}
+
 
 </style>
 </head>
@@ -758,11 +775,18 @@ header p {
 
     <h2>🛒 Tu pedido</h2>
 
-    <div id="listaCarrito">
-      <div class="vacio">Todavía no agregaste productos.</div>
-    </div>
+<div id="listaCarrito">
+  <div class="vacio">Todavía no agregaste productos.</div>
+</div>
 
-    <div class="resumen">
+<button
+  class="btn-vaciar"
+  onclick="vaciarCarrito()">
+  🗑️ Vaciar carrito
+</button>
+
+<div class="resumen">
+
 
       <div class="resumen-linea">
         <span>Subtotal:</span>
@@ -917,7 +941,27 @@ function eliminarProducto(index) {
 
   actualizarCarrito();
 }
+  
+/* VACIAR CARRITO */
 
+function vaciarCarrito() {
+
+  if (carrito.length === 0) {
+    return;
+  }
+
+  const confirmar = confirm(
+    "¿Querés vaciar todo el carrito?"
+  );
+
+  if (!confirmar) {
+    return;
+  }
+
+  carrito = [];
+
+  actualizarCarrito();
+}
 
 /* FORMATEAR PESOS */
 
