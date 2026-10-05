@@ -330,7 +330,36 @@ header p {
 .btn-vaciar:hover {
   background: #d9534f;
 }
+  
+.cantidad-control {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
 
+.btn-cantidad {
+  width: 34px;
+  height: 34px;
+  border: none;
+  border-radius: 8px;
+  background: #ef91ad;
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-cantidad:hover {
+  background: #df7898;
+}
+
+.cantidad {
+  min-width: 25px;
+  text-align: center;
+  font-size: 17px;
+  font-weight: bold;
+}
 
 </style>
 </head>
@@ -923,26 +952,53 @@ let carrito = [];
 
 function agregar(nombre, precio) {
 
-  carrito.push({
-    nombre: nombre,
-    precio: precio
-  });
+  const productoExistente = carrito.find(
+    producto => producto.nombre === nombre
+  );
+
+  if (productoExistente) {
+
+    productoExistente.cantidad++;
+
+  } else {
+
+    carrito.push({
+      nombre: nombre,
+      precio: precio,
+      cantidad: 1
+    });
+
+  }
 
   actualizarCarrito();
 
 }
 
-
 /* ELIMINAR PRODUCTO */
+
+function cambiarCantidad(index, cambio) {
+
+  carrito[index].cantidad += cambio;
+
+  if (carrito[index].cantidad <= 0) {
+    carrito.splice(index, 1);
+  }
+
+  actualizarCarrito();
+
+}
+
 
 function eliminarProducto(index) {
 
   carrito.splice(index, 1);
 
   actualizarCarrito();
+
 }
+
   
-/* VACIAR CARRITO */
+  /* VACIAR CARRITO */
 
 function vaciarCarrito() {
 
@@ -1014,7 +1070,61 @@ function actualizarCarrito() {
 
   } else {
 
-    carrito.forEach((producto, index) => {
+carrito.forEach((producto, index) => {
+
+  const item = document.createElement("div");
+
+  item.className = "item-carrito";
+
+  const subtotalProducto =
+    producto.precio * producto.cantidad;
+
+  item.innerHTML = `
+
+    <div class="item-info">
+
+      <div class="item-nombre">
+        ${producto.nombre}
+      </div>
+
+      <div class="item-precio">
+        ${formatoPesos(subtotalProducto)}
+      </div>
+
+      <div class="cantidad-control">
+
+        <button
+          class="btn-cantidad"
+          onclick="cambiarCantidad(${index}, -1)">
+          −
+        </button>
+
+        <span class="cantidad">
+          ${producto.cantidad}
+        </span>
+
+        <button
+          class="btn-cantidad"
+          onclick="cambiarCantidad(${index}, 1)">
+          +
+        </button>
+
+      </div>
+
+    </div>
+
+    <button
+      class="btn-eliminar"
+      onclick="eliminarProducto(${index})">
+      🗑️
+    </button>
+
+  `;
+
+  lista.appendChild(item);
+
+});
+
 
       const item = document.createElement("div");
 
@@ -1052,9 +1162,9 @@ function actualizarCarrito() {
 
   let subtotal = 0;
 
-  carrito.forEach(producto => {
-    subtotal += producto.precio;
-  });
+ carrito.forEach(producto => {
+  subtotal += producto.precio * producto.cantidad;
+});
 
 
   const tipo = document.getElementById("tipoPedido").value;
@@ -1264,17 +1374,21 @@ function enviarWhatsApp() {
 
   carrito.forEach((producto) => {
 
-    subtotal += producto.precio;
+  const subtotalProducto =
+    producto.precio * producto.cantidad;
 
-    mensaje +=
-      "• " +
-      producto.nombre +
-      " — " +
-      formatoPesos(producto.precio) +
-      "\n";
+  subtotal += subtotalProducto;
 
-  });
+  mensaje +=
+    "• " +
+    producto.cantidad +
+    "x " +
+    producto.nombre +
+    " — " +
+    formatoPesos(subtotalProducto) +
+    "\n";
 
+});
 
   const recargo = obtenerRecargoDelivery();
 
