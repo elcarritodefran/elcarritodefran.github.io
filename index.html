@@ -1048,20 +1048,32 @@ function obtenerRecargoDelivery() {
 
 }
 
-
 /* ACTUALIZAR CARRITO */
 
 function actualizarCarrito() {
 
   const lista = document.getElementById("listaCarrito");
 
-  const subtotalElemento = document.getElementById("subtotal");
-  const recargoElemento = document.getElementById("recargo");
-  const totalElemento = document.getElementById("total");
-  const totalFlotante = document.getElementById("totalFlotante");
-  const cantidadFlotante = document.getElementById("cantidadFlotante");
+  const subtotalElemento =
+    document.getElementById("subtotal");
+
+  const recargoElemento =
+    document.getElementById("recargo");
+
+  const totalElemento =
+    document.getElementById("total");
+
+  const totalFlotante =
+    document.getElementById("totalFlotante");
+
+  const cantidadFlotante =
+    document.getElementById("cantidadFlotante");
+
 
   lista.innerHTML = "";
+
+
+  /* MOSTRAR PRODUCTOS */
 
   if (carrito.length === 0) {
 
@@ -1070,65 +1082,17 @@ function actualizarCarrito() {
 
   } else {
 
-carrito.forEach((producto, index) => {
+    carrito.forEach((producto, index) => {
 
-  const item = document.createElement("div");
-
-  item.className = "item-carrito";
-
-  const subtotalProducto =
-    producto.precio * producto.cantidad;
-
-  item.innerHTML = `
-
-    <div class="item-info">
-
-      <div class="item-nombre">
-        ${producto.nombre}
-      </div>
-
-      <div class="item-precio">
-        ${formatoPesos(subtotalProducto)}
-      </div>
-
-      <div class="cantidad-control">
-
-        <button
-          class="btn-cantidad"
-          onclick="cambiarCantidad(${index}, -1)">
-          −
-        </button>
-
-        <span class="cantidad">
-          ${producto.cantidad}
-        </span>
-
-        <button
-          class="btn-cantidad"
-          onclick="cambiarCantidad(${index}, 1)">
-          +
-        </button>
-
-      </div>
-
-    </div>
-
-    <button
-      class="btn-eliminar"
-      onclick="eliminarProducto(${index})">
-      🗑️
-    </button>
-
-  `;
-
-  lista.appendChild(item);
-
-});
-
-
-      const item = document.createElement("div");
+      const item =
+        document.createElement("div");
 
       item.className = "item-carrito";
+
+
+      const subtotalProducto =
+        producto.precio * producto.cantidad;
+
 
       item.innerHTML = `
 
@@ -1139,19 +1103,40 @@ carrito.forEach((producto, index) => {
           </div>
 
           <div class="item-precio">
-            ${formatoPesos(producto.precio)}
+            ${formatoPesos(subtotalProducto)}
+          </div>
+
+          <div class="cantidad-control">
+
+            <button
+              class="btn-cantidad"
+              onclick="cambiarCantidad(${index}, -1)">
+              −
+            </button>
+
+            <span class="cantidad">
+              ${producto.cantidad}
+            </span>
+
+            <button
+              class="btn-cantidad"
+              onclick="cambiarCantidad(${index}, 1)">
+              +
+            </button>
+
           </div>
 
         </div>
 
+
         <button
           class="btn-eliminar"
-          onclick="eliminarProducto(${index})"
-        >
-          ✕
+          onclick="eliminarProducto(${index})">
+          🗑️
         </button>
 
       `;
+
 
       lista.appendChild(item);
 
@@ -1160,42 +1145,72 @@ carrito.forEach((producto, index) => {
   }
 
 
+  /* CALCULAR SUBTOTAL */
+
   let subtotal = 0;
 
- carrito.forEach(producto => {
-  subtotal += producto.precio * producto.cantidad;
-});
+  carrito.forEach(producto => {
+
+    subtotal +=
+      producto.precio * producto.cantidad;
+
+  });
 
 
-  const tipo = document.getElementById("tipoPedido").value;
+  /* DELIVERY */
 
-  const zona = document.getElementById("zonaDelivery").value;
+  const tipo =
+    document.getElementById("tipoPedido").value;
 
-  const recargo = obtenerRecargoDelivery();
+  const zona =
+    document.getElementById("zonaDelivery").value;
+
+  const recargo =
+    obtenerRecargoDelivery();
+
 
   const zonaConsultar =
-    tipo === "Delivery" && zona === "consultar";
+    tipo === "Delivery" &&
+    zona === "consultar";
 
+
+  /* SUBTOTAL */
 
   subtotalElemento.textContent =
     formatoPesos(subtotal);
 
 
+  /* RECARGO */
+
   if (tipo !== "Delivery") {
 
-    recargoElemento.textContent = "$0";
+    recargoElemento.textContent =
+      "$0";
 
-  } else if (zonaConsultar) {
-
-    recargoElemento.textContent = "A consultar";
-    recargoElemento.className = "consulta-delivery";
-
-  } else if (zona === "") {
-
-    recargoElemento.textContent = "Seleccionar zona";
     recargoElemento.className = "";
 
-  } else {
+  }
+
+  else if (zonaConsultar) {
+
+    recargoElemento.textContent =
+      "A consultar";
+
+    recargoElemento.className =
+      "consulta-delivery";
+
+  }
+
+  else if (zona === "") {
+
+    recargoElemento.textContent =
+      "Seleccionar zona";
+
+    recargoElemento.className = "";
+
+  }
+
+  else {
 
     recargoElemento.textContent =
       formatoPesos(recargo);
@@ -1205,22 +1220,38 @@ carrito.forEach((producto, index) => {
   }
 
 
-  const total = subtotal + recargo;
+  /* TOTAL */
+
+  const total =
+    subtotal + recargo;
+
 
   totalElemento.textContent =
     formatoPesos(total);
+
 
   totalFlotante.textContent =
     formatoPesos(total);
 
 
+  /* CANTIDAD TOTAL DE PRODUCTOS */
+
+  let cantidadTotal = 0;
+
+  carrito.forEach(producto => {
+
+    cantidadTotal +=
+      producto.cantidad;
+
+  });
+
+
   cantidadFlotante.textContent =
-    carrito.length === 1
+    cantidadTotal === 1
       ? "1 producto"
-      : carrito.length + " productos";
+      : cantidadTotal + " productos";
 
 }
-
 
 /* CAMBIAR TIPO DE PEDIDO */
 
