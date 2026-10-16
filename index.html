@@ -3,10 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#ef91ad">
 
 <title>El Carrito de Fran | Comodoro Rivadavia</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@500;700;800&display=swap" rel="stylesheet">
+
 <style>
+
+:root {
+  --rosa: #ef91ad;
+  --rosa-claro: #f7b6c9;
+  --rosa-fondo: #fff4f7;
+  --rosa-borde: #f5bfd0;
+  --rosa-fuerte: #d94f79;
+  --rosa-sombra: #a93358;
+  --baya: #4a1230;
+  --baya-suave: #7d5266;
+  --verde: #25d366;
+  --rojo: #e57373;
+  --display: "Lilita One", "Arial Black", Impact, sans-serif;
+  --texto: "Nunito", Arial, Helvetica, sans-serif;
+}
 
 * {
   box-sizing: border-box;
@@ -14,152 +34,305 @@
   padding: 0;
 }
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  background: #fff4f7;
-  color: #333;
-  padding-bottom: 100px;
+html {
+  scroll-behavior: smooth;
 }
 
+body {
+  font-family: var(--texto);
+  background-color: var(--rosa-fondo);
+  background-image: radial-gradient(rgba(239, 145, 173, 0.28) 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
+  color: var(--baya);
+  padding-bottom: 110px;
+  line-height: 1.4;
+}
+
+:focus-visible {
+  outline: 3px solid var(--baya);
+  outline-offset: 2px;
+}
+
+/* ---------- TOLDO + ENCABEZADO ---------- */
+
 header {
-  background: #f7b6c9;
-  padding: 20px 15px;
+  background: var(--rosa-claro);
   text-align: center;
-  border-bottom: 3px solid #ef91ad;
+  padding-bottom: 30px;
+  border-bottom: 4px solid var(--rosa);
+}
+
+.toldo {
+  height: 48px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--rosa) 0 40px,
+    #fff 40px 80px
+  );
+  border-bottom: 4px solid var(--rosa-fuerte);
+}
+
+.toldo-flecos {
+  height: 20px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--rosa) 0 40px,
+    #fff 40px 80px
+  );
+  -webkit-mask: radial-gradient(circle at 20px 0, #000 19.5px, transparent 20px) 0 0 / 40px 20px repeat-x;
+          mask: radial-gradient(circle at 20px 0, #000 19.5px, transparent 20px) 0 0 / 40px 20px repeat-x;
+  filter: drop-shadow(0 3px 0 rgba(169, 51, 88, 0.35));
 }
 
 header img {
-  max-width: 180px;
-  max-height: 120px;
-  object-fit: contain;
-  margin-bottom: 10px;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 6px solid #fff;
+  background: #fff;
+  box-shadow: 0 0 0 5px var(--rosa-fuerte), 0 8px 0 5px var(--rosa-sombra);
+  margin: 26px 0 24px;
 }
 
 header h1 {
-  font-size: 28px;
-  color: #222;
-  margin-bottom: 5px;
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(38px, 9vw, 66px);
+  line-height: 1;
+  letter-spacing: 1px;
+  color: var(--baya);
+  text-shadow:
+    3px 3px 0 #fff,
+    5px 5px 0 var(--rosa);
+  margin-bottom: 14px;
 }
 
 header p {
-  font-size: 15px;
+  font-size: 17px;
+  font-weight: 800;
   margin: 4px 0;
 }
 
 .estado {
-  display: inline-block;
-  margin-top: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 16px;
   background: #fff;
-  padding: 8px 15px;
-  border-radius: 20px;
-  font-weight: bold;
-  color: #159447;
+  padding: 10px 20px;
+  border-radius: 40px;
+  font-weight: 800;
+  font-size: 15px;
+  color: #0f7a3a;
+  box-shadow: 0 4px 0 #159447;
 }
+
+.estado::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--verde);
+  animation: latido 1.6s ease-out infinite;
+}
+
+@keyframes latido {
+  0%   { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.8); }
+  100% { box-shadow: 0 0 0 12px rgba(37, 211, 102, 0); }
+}
+
+/* ---------- CONTENEDOR ---------- */
 
 .contenedor {
-  width: 95%;
+  width: 94%;
   max-width: 1100px;
-  margin: 20px auto;
+  margin: 0 auto 20px;
 }
 
+/* ---------- CATEGORÍAS ---------- */
+
 .categorias {
+  position: sticky;
+  top: 0;
+  z-index: 50;
   display: flex;
   gap: 8px;
   overflow-x: auto;
-  padding: 5px 0 15px;
-  scrollbar-width: thin;
+  padding: 12px 4px;
+  margin: 0 -4px 10px;
+  background: rgba(255, 244, 247, 0.95);
+  backdrop-filter: blur(6px);
+  scrollbar-width: none;
+}
+
+.categorias::-webkit-scrollbar {
+  display: none;
 }
 
 .categorias a {
   flex: 0 0 auto;
   text-decoration: none;
-  background: #f8b6c8;
-  color: #222;
-  padding: 10px 14px;
-  border-radius: 20px;
-  font-weight: bold;
+  background: var(--rosa-claro);
+  color: var(--baya);
+  border: 2px solid var(--rosa);
+  padding: 9px 15px;
+  border-radius: 30px;
+  font-weight: 800;
   font-size: 14px;
+  box-shadow: 0 3px 0 var(--rosa);
 }
 
+.categorias a:hover,
+.categorias a:active {
+  background: var(--rosa);
+}
+
+/* ---------- SECCIONES DE MENÚ ---------- */
+
 .categoria {
-  margin-bottom: 30px;
+  margin-bottom: 38px;
+  scroll-margin-top: 70px;
 }
 
 .categoria h2 {
-  background: #f8b6c8;
-  border-left: 6px solid #e98eaa;
-  padding: 10px 14px;
-  border-radius: 10px;
-  margin-bottom: 15px;
-  color: #222;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(26px, 6vw, 36px);
+  letter-spacing: 0.5px;
+  color: var(--baya);
+  margin-bottom: 16px;
+}
+
+.categoria h2::after {
+  content: "";
+  flex: 1;
+  height: 8px;
+  border-radius: 8px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--rosa) 0 20px,
+    #fff 20px 40px
+  );
+  box-shadow: inset 0 0 0 2px var(--rosa);
 }
 
 .productos {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 15px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
 }
 
 .producto {
-  background: white;
-  border: 2px solid #f5bfd0;
-  border-radius: 15px;
-  padding: 15px;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 3px solid var(--rosa-borde);
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: 0 5px 0 var(--rosa-borde);
 }
 
 .producto h3 {
   font-size: 18px;
-  margin-bottom: 8px;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 6px;
 }
 
 .producto p {
   font-size: 14px;
-  color: #666;
+  font-weight: 500;
+  color: var(--baya-suave);
   margin-bottom: 10px;
 }
 
 .precio {
-  font-size: 20px;
-  font-weight: bold;
-  color: #d94f79;
+  align-self: flex-start;
+  font-family: var(--display);
+  font-size: 26px;
+  color: var(--rosa-fuerte);
+  background: var(--rosa-fondo);
+  border: 2px dashed var(--rosa);
+  border-radius: 12px;
+  padding: 2px 14px;
+  margin-top: auto;
   margin-bottom: 12px;
 }
+
+.opciones {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: auto;
+}
+
+/* ---------- BOTONES ---------- */
 
 .btn {
   width: 100%;
   border: none;
-  background: #ef91ad;
-  color: white;
-  padding: 11px;
-  border-radius: 10px;
+  background: var(--rosa-fuerte);
+  color: #fff;
+  padding: 12px;
+  border-radius: 12px;
   cursor: pointer;
-  font-size: 15px;
-  font-weight: bold;
+  font-family: var(--texto);
+  font-size: 16px;
+  font-weight: 800;
+  box-shadow: 0 4px 0 var(--rosa-sombra);
+  transition: transform 0.1s, box-shadow 0.1s;
 }
 
 .btn:hover {
-  background: #df7898;
+  background: #e45e86;
 }
 
+.btn:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 var(--rosa-sombra);
+}
+
+.btn-alt {
+  background: #fff;
+  color: var(--rosa-fuerte);
+  border: 2px solid var(--rosa-fuerte);
+  box-shadow: 0 4px 0 var(--rosa-borde);
+}
+
+.btn-alt:hover {
+  background: var(--rosa-fondo);
+}
+
+/* ---------- CARRITO ---------- */
+
 #carrito {
-  background: white;
-  border: 3px solid #f5bfd0;
-  border-radius: 18px;
-  padding: 20px;
-  margin-top: 30px;
+  background: #fff;
+  border: 4px solid var(--rosa);
+  border-radius: 24px;
+  padding: 22px;
+  margin-top: 40px;
+  scroll-margin-top: 20px;
+  box-shadow: 0 8px 0 var(--rosa-claro);
 }
 
 #carrito h2 {
-  margin-bottom: 15px;
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: 32px;
+  color: var(--rosa-fuerte);
+  margin-bottom: 14px;
 }
 
 .item-carrito {
   display: flex;
   justify-content: space-between;
   gap: 10px;
-  border-bottom: 1px solid #eee;
-  padding: 10px 0;
+  border-bottom: 2px dashed var(--rosa-borde);
+  padding: 12px 0;
 }
 
 .item-info {
@@ -167,78 +340,155 @@ header p {
 }
 
 .item-nombre {
-  font-weight: bold;
+  font-weight: 800;
 }
 
 .item-precio {
-  color: #d94f79;
-  font-weight: bold;
+  color: var(--rosa-fuerte);
+  font-weight: 800;
 }
 
 .btn-eliminar {
-  background: #e57373;
-  color: white;
+  align-self: center;
+  background: var(--rojo);
+  color: #fff;
   border: none;
-  border-radius: 7px;
-  padding: 5px 8px;
+  border-radius: 10px;
+  padding: 8px 10px;
   cursor: pointer;
+  font-size: 16px;
+}
+
+.cantidad-control {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.btn-cantidad {
+  width: 38px;
+  height: 38px;
+  border: none;
+  border-radius: 10px;
+  background: var(--rosa-fuerte);
+  color: #fff;
+  font-size: 22px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 3px 0 var(--rosa-sombra);
+}
+
+.btn-cantidad:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 var(--rosa-sombra);
+}
+
+.cantidad {
+  min-width: 26px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.vacio {
+  color: var(--baya-suave);
+  text-align: center;
+  padding: 18px;
+  font-weight: 700;
+}
+
+.btn-vaciar {
+  width: 100%;
+  margin-top: 14px;
+  padding: 11px;
+  border: 2px solid #d9534f;
+  border-radius: 12px;
+  background: transparent;
+  color: #d9534f;
+  font-family: var(--texto);
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.btn-vaciar:hover {
+  background: #d9534f;
+  color: #fff;
 }
 
 .resumen {
   margin-top: 18px;
-  border-top: 2px solid #f5bfd0;
-  padding-top: 15px;
+  border-top: 3px solid var(--rosa);
+  padding-top: 14px;
 }
 
 .resumen-linea {
   display: flex;
   justify-content: space-between;
   padding: 6px 0;
-  font-size: 16px;
+  font-size: 17px;
+  font-weight: 700;
 }
 
 .resumen-linea.total {
-  font-size: 22px;
-  font-weight: bold;
-  color: #d94f79;
-  border-top: 2px solid #f5bfd0;
+  font-family: var(--display);
+  font-size: 30px;
+  font-weight: 400;
+  color: var(--rosa-fuerte);
+  border-top: 3px dashed var(--rosa-borde);
   margin-top: 8px;
   padding-top: 12px;
 }
 
 .consulta-delivery {
   color: #c77b00;
-  font-weight: bold;
+  font-weight: 800;
 }
 
+/* ---------- FORMULARIO ---------- */
+
 .formulario {
-  margin-top: 25px;
+  margin-top: 26px;
 }
 
 .formulario h3 {
-  margin-bottom: 12px;
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: 24px;
+  margin-bottom: 8px;
 }
 
 .formulario label {
   display: block;
-  font-weight: bold;
-  margin-top: 12px;
-  margin-bottom: 5px;
+  font-weight: 800;
+  margin-top: 14px;
+  margin-bottom: 6px;
 }
 
 .formulario input,
 .formulario select,
 .formulario textarea {
   width: 100%;
-  padding: 11px;
-  border: 1px solid #e8b4c5;
-  border-radius: 8px;
-  font-size: 15px;
-  background: #fffafd;
+  padding: 12px;
+  border: 2px solid var(--rosa-borde);
+  border-radius: 10px;
+  font-family: var(--texto);
+  font-size: 16px;
+  color: var(--baya);
+  background: var(--rosa-fondo);
+}
+
+.formulario input:focus,
+.formulario select:focus,
+.formulario textarea:focus {
+  border-color: var(--rosa-fuerte);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(217, 79, 121, 0.28);
 }
 
 .formulario textarea {
-  min-height: 80px;
+  min-height: 84px;
   resize: vertical;
 }
 
@@ -249,116 +499,109 @@ header p {
 
 .btn-whatsapp {
   width: 100%;
-  margin-top: 20px;
-  padding: 14px;
+  margin-top: 24px;
+  padding: 16px;
   border: none;
-  border-radius: 12px;
-  background: #25D366;
-  color: white;
-  font-size: 18px;
-  font-weight: bold;
+  border-radius: 14px;
+  background: var(--verde);
+  color: #fff;
+  font-family: var(--texto);
+  font-size: 19px;
+  font-weight: 800;
   cursor: pointer;
+  box-shadow: 0 5px 0 #159447;
+  transition: transform 0.1s, box-shadow 0.1s;
 }
 
 .btn-whatsapp:hover {
   background: #1ebe5d;
 }
 
+.btn-whatsapp:active {
+  transform: translateY(4px);
+  box-shadow: 0 1px 0 #159447;
+}
+
+/* ---------- CARRITO FLOTANTE ---------- */
+
 .carrito-flotante {
   position: fixed;
-  bottom: 15px;
+  bottom: 14px;
   left: 50%;
   transform: translateX(-50%);
   width: 92%;
   max-width: 500px;
-  background: #ef91ad;
-  color: white;
-  padding: 14px 18px;
-  border-radius: 30px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+  background: var(--rosa-fuerte);
+  color: #fff;
+  padding: 13px 20px;
+  border-radius: 40px;
+  border: 3px solid #fff;
+  box-shadow: 0 5px 0 var(--rosa-sombra), 0 10px 26px rgba(74, 18, 48, 0.35);
   display: flex;
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
   z-index: 999;
-  font-weight: bold;
+  font-weight: 800;
+  font-size: 17px;
 }
 
 .carrito-flotante small {
   display: block;
-  font-weight: normal;
+  font-weight: 700;
+  font-size: 13px;
 }
 
-.vacio {
-  color: #777;
+#totalFlotante {
+  font-family: var(--display);
+  font-size: 26px;
+  font-weight: 400;
+}
+
+footer {
   text-align: center;
-  padding: 15px;
+  color: var(--baya-suave);
+  font-weight: 700;
+  font-size: 14px;
+  padding: 10px 16px 0;
 }
 
 @media (max-width: 600px) {
 
-  header h1 {
-    font-size: 24px;
+  .toldo {
+    height: 36px;
+  }
+
+  header img {
+    width: 120px;
+    height: 120px;
   }
 
   .productos {
     grid-template-columns: 1fr;
   }
 
-  .producto {
-    padding: 14px;
-  }
-
-  .item-carrito {
-    align-items: center;
+  #carrito {
+    padding: 16px;
   }
 
 }
-.btn-vaciar {
-  width: 100%;
-  margin-top: 15px;
-  padding: 11px;
-  border: none;
-  border-radius: 10px;
-  background: #e57373;
-  color: white;
-  font-size: 15px;
-  font-weight: bold;
-  cursor: pointer;
-}
 
-.btn-vaciar:hover {
-  background: #d9534f;
-}
-  
-.cantidad-control {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 10px;
-}
+@media (prefers-reduced-motion: reduce) {
 
-.btn-cantidad {
-  width: 34px;
-  height: 34px;
-  border: none;
-  border-radius: 8px;
-  background: #ef91ad;
-  color: white;
-  font-size: 22px;
-  font-weight: bold;
-  cursor: pointer;
-}
+  html {
+    scroll-behavior: auto;
+  }
 
-.btn-cantidad:hover {
-  background: #df7898;
-}
+  .estado::before {
+    animation: none;
+  }
 
-.cantidad {
-  min-width: 25px;
-  text-align: center;
-  font-size: 17px;
-  font-weight: bold;
+  .btn,
+  .btn-whatsapp {
+    transition: none;
+  }
+
 }
 
 </style>
@@ -368,6 +611,9 @@ header p {
 
 <header>
 
+  <div class="toldo"></div>
+  <div class="toldo-flecos"></div>
+
   <img src="logo.jpg" alt="El Carrito de Fran">
 
   <h1>El Carrito de Fran</h1>
@@ -376,14 +622,14 @@ header p {
 
   <p>🕗 Abrimos de 20:00 a 23:00</p>
 
-  <div class="estado">🟢 TOMAMOS PEDIDOS</div>
+  <div class="estado">TOMAMOS PEDIDOS</div>
 
 </header>
 
 
 <div class="contenedor">
 
-  <div class="categorias">
+  <nav class="categorias" aria-label="Categorías del menú">
     <a href="#papas">🍟 Papas</a>
     <a href="#empanadas">🥟 Empanadas</a>
     <a href="#hamburguesas">🍔 Hamburguesas</a>
@@ -391,14 +637,14 @@ header p {
     <a href="#pizzas">🍕 Pizzas</a>
     <a href="#pizzas-rectangulares">🍕 Rectangulares</a>
     <a href="#panchos">🌭 Panchos</a>
-  </div>
+  </nav>
 
 
   <!-- PAPAS -->
 
   <section class="categoria" id="papas">
 
-    <h2>🍟 PAPAS FRITAS</h2>
+    <h2>🍟 Papas fritas</h2>
 
     <div class="productos">
 
@@ -441,48 +687,53 @@ header p {
 
   <section class="categoria" id="empanadas">
 
-    <h2>🥟 EMPANADAS</h2>
+    <h2>🥟 Empanadas</h2>
 
     <div class="productos">
 
       <div class="producto">
         <h3>Empanadas de carne</h3>
         <p>Docena $19.000 | Media docena $12.000</p>
-        <button class="btn" onclick="agregar('Docena empanadas de carne',19000)">Docena $19.000</button>
-        <br><br>
-        <button class="btn" onclick="agregar('Media docena empanadas de carne',12000)">Media $12.000</button>
+        <div class="opciones">
+          <button class="btn" onclick="agregar('Docena empanadas de carne',19000)">Docena $19.000</button>
+          <button class="btn btn-alt" onclick="agregar('Media docena empanadas de carne',12000)">Media $12.000</button>
+        </div>
       </div>
 
       <div class="producto">
         <h3>Empanadas JyQ</h3>
         <p>Docena $19.000 | Media docena $14.000</p>
-        <button class="btn" onclick="agregar('Docena empanadas JyQ',19000)">Docena $19.000</button>
-        <br><br>
-        <button class="btn" onclick="agregar('Media docena empanadas JyQ',14000)">Media $14.000</button>
+        <div class="opciones">
+          <button class="btn" onclick="agregar('Docena empanadas JyQ',19000)">Docena $19.000</button>
+          <button class="btn btn-alt" onclick="agregar('Media docena empanadas JyQ',14000)">Media $14.000</button>
+        </div>
       </div>
 
       <div class="producto">
         <h3>Empanadas de atún</h3>
         <p>Docena $25.000 | Media docena $14.000</p>
-        <button class="btn" onclick="agregar('Docena empanadas de atún',25000)">Docena $25.000</button>
-        <br><br>
-        <button class="btn" onclick="agregar('Media docena empanadas de atún',14000)">Media $14.000</button>
+        <div class="opciones">
+          <button class="btn" onclick="agregar('Docena empanadas de atún',25000)">Docena $25.000</button>
+          <button class="btn btn-alt" onclick="agregar('Media docena empanadas de atún',14000)">Media $14.000</button>
+        </div>
       </div>
 
       <div class="producto">
         <h3>Empanadas Roque Fort</h3>
         <p>Docena $29.000 | Media docena $17.000</p>
-        <button class="btn" onclick="agregar('Docena empanadas Roque Fort',29000)">Docena $29.000</button>
-        <br><br>
-        <button class="btn" onclick="agregar('Media docena empanadas Roque Fort',17000)">Media $17.000</button>
+        <div class="opciones">
+          <button class="btn" onclick="agregar('Docena empanadas Roque Fort',29000)">Docena $29.000</button>
+          <button class="btn btn-alt" onclick="agregar('Media docena empanadas Roque Fort',17000)">Media $17.000</button>
+        </div>
       </div>
 
       <div class="producto">
         <h3>Empanadas pizzera</h3>
         <p>Docena $28.000 | Media docena $16.000</p>
-        <button class="btn" onclick="agregar('Docena empanadas pizzera',28000)">Docena $28.000</button>
-        <br><br>
-        <button class="btn" onclick="agregar('Media docena empanadas pizzera',16000)">Media $16.000</button>
+        <div class="opciones">
+          <button class="btn" onclick="agregar('Docena empanadas pizzera',28000)">Docena $28.000</button>
+          <button class="btn btn-alt" onclick="agregar('Media docena empanadas pizzera',16000)">Media $16.000</button>
+        </div>
       </div>
 
     </div>
@@ -493,7 +744,7 @@ header p {
 
   <section class="categoria" id="hamburguesas">
 
-    <h2>🍔 HAMBURGUESAS</h2>
+    <h2>🍔 Hamburguesas</h2>
 
     <div class="productos">
 
@@ -548,7 +799,7 @@ header p {
 
   <section class="categoria" id="sandwich">
 
-    <h2>🥪 SÁNDWICH</h2>
+    <h2>🥪 Sándwich</h2>
 
     <div class="productos">
 
@@ -597,7 +848,7 @@ header p {
 
   <section class="categoria" id="pizzas">
 
-    <h2>🍕 PIZZAS</h2>
+    <h2>🍕 Pizzas</h2>
 
     <div class="productos">
 
@@ -662,81 +913,48 @@ header p {
         <div class="precio">$28.000</div>
         <button class="btn" onclick="agregar('Pizza 4 quesos',28000)">Agregar</button>
       </div>
+
       <div class="producto">
-
-  <h3>Hamburpizza</h3>
-
-  <div class="precio">$33.000</div>
-
-  <button
-    class="btn"
-    onclick="agregar('Hamburpizza',33000)">
-
-    Agregar
-
-  </button>
-
-</div>
+        <h3>Hamburpizza</h3>
+        <div class="precio">$33.000</div>
+        <button class="btn" onclick="agregar('Hamburpizza',33000)">Agregar</button>
+      </div>
 
     </div>
   </section>
 
 
-<!-- PIZZAS RECTANGULARES -->
+  <!-- PIZZAS RECTANGULARES -->
 
-<section class="categoria" id="pizzas-rectangulares">
+  <section class="categoria" id="pizzas-rectangulares">
 
-  <h2>🍕 PIZZAS RECTANGULARES 50 × 25 CM</h2>
+    <h2>🍕 Rectangulares 50 × 25 cm</h2>
 
-  <div class="productos">
+    <div class="productos">
 
-    <div class="producto">
+      <div class="producto">
+        <h3>Muzzarella + Mia Pizza + Paisana</h3>
+        <p>Tres sabores en una misma pizza rectangular.</p>
+        <div class="precio">$36.000</div>
+        <button class="btn" onclick="agregar('Pizza rectangular Muzzarella + Mia Pizza + Paisana',36000)">Agregar</button>
+      </div>
 
-      <h3>Muzzarella + Mia Pizza + Paisana</h3>
-
-      <p>
-        Tres sabores en una misma pizza rectangular.
-      </p>
-
-      <div class="precio">$36.000</div>
-
-      <button
-        class="btn"
-        onclick="agregar('Pizza rectangular Muzzarella + Mia Pizza + Paisana',36000)">
-        Agregar
-      </button>
+      <div class="producto">
+        <h3>Napolitana + Rúcula + Salchipapas</h3>
+        <p>Tres sabores en una misma pizza rectangular.</p>
+        <div class="precio">$42.000</div>
+        <button class="btn" onclick="agregar('Pizza rectangular Napolitana + Rúcula + Salchipapas',42000)">Agregar</button>
+      </div>
 
     </div>
-
-
-    <div class="producto">
-
-      <h3>Napolitana + Rúcula + Salchipapas</h3>
-
-      <p>
-        Tres sabores en una misma pizza rectangular.
-      </p>
-
-      <div class="precio">$42.000</div>
-
-      <button
-        class="btn"
-        onclick="agregar('Pizza rectangular Napolitana + Rúcula + Salchipapas',42000)">
-        Agregar
-      </button>
-
-    </div>
-
-  </div>
-
-</section>
+  </section>
 
 
   <!-- PANCHOS -->
 
   <section class="categoria" id="panchos">
 
-    <h2>🌭 PANCHOS</h2>
+    <h2>🌭 Panchos</h2>
 
     <div class="productos">
 
@@ -804,18 +1022,15 @@ header p {
 
     <h2>🛒 Tu pedido</h2>
 
-<div id="listaCarrito">
-  <div class="vacio">Todavía no agregaste productos.</div>
-</div>
+    <div id="listaCarrito">
+      <div class="vacio">Todavía no agregaste productos.</div>
+    </div>
 
-<button
-  class="btn-vaciar"
-  onclick="vaciarCarrito()">
-  🗑️ Vaciar carrito
-</button>
+    <button class="btn-vaciar" onclick="vaciarCarrito()">
+      🗑️ Vaciar carrito
+    </button>
 
-<div class="resumen">
-
+    <div class="resumen">
 
       <div class="resumen-linea">
         <span>Subtotal:</span>
@@ -928,6 +1143,10 @@ header p {
 
 </div>
 
+<footer>
+  El Carrito de Fran · Comodoro Rivadavia
+</footer>
+
 
 <!-- CARRITO FLOTANTE -->
 
@@ -997,8 +1216,8 @@ function eliminarProducto(index) {
 
 }
 
-  
-  /* VACIAR CARRITO */
+
+/* VACIAR CARRITO */
 
 function vaciarCarrito() {
 
@@ -1405,21 +1624,21 @@ function enviarWhatsApp() {
 
   carrito.forEach((producto) => {
 
-  const subtotalProducto =
-    producto.precio * producto.cantidad;
+    const subtotalProducto =
+      producto.precio * producto.cantidad;
 
-  subtotal += subtotalProducto;
+    subtotal += subtotalProducto;
 
-  mensaje +=
-    "• " +
-    producto.cantidad +
-    "x " +
-    producto.nombre +
-    " — " +
-    formatoPesos(subtotalProducto) +
-    "\n";
+    mensaje +=
+      "• " +
+      producto.cantidad +
+      "x " +
+      producto.nombre +
+      " — " +
+      formatoPesos(subtotalProducto) +
+      "\n";
 
-});
+  });
 
   const recargo = obtenerRecargoDelivery();
 
